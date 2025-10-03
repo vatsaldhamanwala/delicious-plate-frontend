@@ -1,12 +1,14 @@
-import './App.css'
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
+import {Outlet} from 'react-router-dom'
 
 function App() {
 
   return (
     <>
-      <div className=' bg-white flex items-center justify-center'>
-      </div>
-      <h1 className='bg-[rgba(111,78,55,1)] text-3xl text-[#fffcf5] p-4'> Welcome to Delicious Plate </h1>
+      <Header />
+      <Outlet />
+      <Footer />
     </>
   )
 }
