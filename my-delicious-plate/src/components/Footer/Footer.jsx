@@ -29,9 +29,9 @@ export default function Footer() {
             <div>
                 <h4 className='font-bold mb-4 text-white text-xl'>Categories</h4>
                 <ul className='space-y-2 text-sm'>
-                    <li><Link to="/about" className='hover:text-orange-400 text-[#fffcf5]' >Veg</Link></li>
-                    <li><Link to="/contact" className='hover:text-orange-400 text-[#fffcf5]'>Non-veg</Link></li>
-                    <li><Link to="/terms" className='hover:text-orange-400 text-[#fffcf5]'>Desserts</Link></li>
+                    <li><Link to="/veg" className='hover:text-orange-400 text-[#fffcf5]' >Veg</Link></li>
+                    <li><Link to="/non-veg" className='hover:text-orange-400 text-[#fffcf5]'>Non-veg</Link></li>
+                    <li><Link to="/desserts" className='hover:text-orange-400 text-[#fffcf5]'>Desserts</Link></li>
                 </ul>
             </div>
         </div>
