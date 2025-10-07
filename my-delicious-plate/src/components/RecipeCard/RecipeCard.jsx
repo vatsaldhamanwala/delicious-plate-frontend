@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Icon } from "@iconify/react";
 
 export default function RecipeCard() {
+
+    const [isLiked, setIsLiked] = useState(false)
+
+    const [isSaved , setIsSaved]= useState(false)
+
+    console.log(isLiked);
+    
     
 
   return (
@@ -15,9 +23,13 @@ export default function RecipeCard() {
 
         <div className='flex flex-col py-3 px-1 pb-10 text-[#6b4226] space-y-2'>
 
-            <div className='flex justify-between'>
-                <button >
-                    🤍
+            <div className='flex justify-left '>
+                <button onClick={()=> setIsLiked(!isLiked)} className='flex items-center gap-2 '>
+                    {isLiked ? <Icon icon='fluent-emoji-flat:heart-suit' className='w-6 h-6' /> : <Icon icon='clarity:heart-line' className='w-6 h-6'/>}
+                </button>
+
+                <button onClick={()=> setIsSaved(!isSaved)} className='flex items-center gap-2 '>
+                    { isSaved ? <Icon icon='fluent:bookmark-20-filled' className='w-6 h-6'/> : <Icon icon='fluent:bookmark-20-regular' className='w-6 h-6'/>}
                 </button>
             </div>
 
