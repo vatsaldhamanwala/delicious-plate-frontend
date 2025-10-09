@@ -28,12 +28,12 @@ export default function Header() {
 
                         <li>
                             <NavLink 
-                                to='/about' 
+                                to='/about-us' 
                                 className={({isActive}) => 
                                     `${isActive ? ' border-orange-400 border-b-2 text-[#fffcf5]' : ' text-[#fffcf5]'} border-b-2 pb-1 hover:border-b-3 hover:border-orange-400 `
                                 }
                             >
-                                About
+                                About Us
                             </NavLink>
                         </li>
 
