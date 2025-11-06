@@ -19,9 +19,9 @@ export default function Footer() {
             <div>
                 <h4 className='font-bold mb-4 text-white text-xl'>Useful Links</h4>
                 <ul className='space-y-2 text-sm'>
-                    <li><Link to="/" className='hover:text-orange-400 text-[#fffcf5]' >Home</Link></li>
-                    <li><Link to="/about-us" className='hover:text-orange-400 text-[#fffcf5]'>About Us</Link></li>
-                    <li><Link to="/contact" className='hover:text-orange-400 text-[#fffcf5]'>Contact</Link></li>
+                    <li><Link to="/" className='hover:text-orange-400 text-[#FFFDD2]' >Home</Link></li>
+                    <li><Link to="/about-us" className='hover:text-orange-400 text-[#FFFDD2]'>About Us</Link></li>
+                    <li><Link to="/contact" className='hover:text-orange-400 text-[#FFFDD2]'>Contact</Link></li>
                 </ul>
             </div>
 
@@ -29,9 +29,9 @@ export default function Footer() {
             <div>
                 <h4 className='font-bold mb-4 text-white text-xl'>Categories</h4>
                 <ul className='space-y-2 text-sm'>
-                    <li><Link to="/veg" className='hover:text-orange-400 text-[#fffcf5]' >Veg</Link></li>
-                    <li><Link to="/non-veg" className='hover:text-orange-400 text-[#fffcf5]'>Non-veg</Link></li>
-                    <li><Link to="/desserts" className='hover:text-orange-400 text-[#fffcf5]'>Desserts</Link></li>
+                    <li><Link to="/veg" className='hover:text-orange-400 text-[#FFFDD2]' >Veg</Link></li>
+                    <li><Link to="/non-veg" className='hover:text-orange-400 text-[#FFFDD2]'>Non-veg</Link></li>
+                    <li><Link to="/desserts" className='hover:text-orange-400 text-[#FFFDD2]'>Desserts</Link></li>
                 </ul>
             </div>
         </div>

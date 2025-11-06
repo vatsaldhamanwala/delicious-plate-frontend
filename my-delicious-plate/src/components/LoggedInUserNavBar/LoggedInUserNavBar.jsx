@@ -13,7 +13,7 @@ export default  function LoggedInUserNavBar() {
     <header>
         <nav className='flex items-center justify-between bg-[#6b4226] px-3 py-3 space-x-8'>
             {/* Logo */}
-            <div className='text-[#fffcf5] text-3xl font-medium flex items-center'>
+            <div className='text-[#FFFDD2] text-3xl font-medium flex items-center'>
                 <Link to="/">
                     Delicious Plate
                 </Link>
@@ -26,7 +26,7 @@ export default  function LoggedInUserNavBar() {
                         <NavLink 
                             to='/' 
                             className={({isActive}) => 
-                                `${isActive ? ' border-orange-400 border-b-2 text-[#fffcf5]' : ' text-[#fffcf5]'} pb-1  border-b-2 hover:border-b-3 hover:border-orange-400 `
+                                `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
                         >
                             Home
@@ -35,9 +35,9 @@ export default  function LoggedInUserNavBar() {
 
                     <li>
                         <NavLink 
-                            to='/about' 
+                            to='/about-us' 
                             className={({isActive}) => 
-                                `${isActive ? ' border-orange-400 border-b-2 text-[#fffcf5]' : ' text-[#fffcf5]'} border-b-2 pb-1 hover:border-b-3 hover:border-orange-400 `
+                                `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
                         >
                             About
@@ -48,7 +48,7 @@ export default  function LoggedInUserNavBar() {
                         <NavLink 
                             to='/contact' 
                             className={({isActive}) => 
-                                `${isActive ? ' border-orange-400 border-b-2 text-[#fffcf5]' : ' text-[#fffcf5]'} border-b-2 pb-1 hover:border-b-3 hover:border-orange-400 `
+                                `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
                         >
                             Contact
@@ -65,7 +65,7 @@ export default  function LoggedInUserNavBar() {
                         <NavLink 
                             to='/post-recipe' 
                             className={({isActive}) => 
-                                `${isActive ? ' border-orange-400 border-b-2 text-[#fffcf5]' : ' text-[#fffcf5]'} border-b-2 pb-1 hover:border-b-3 hover:border-orange-400 `
+                                `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
                         >
                             Post Recipe
@@ -74,9 +74,9 @@ export default  function LoggedInUserNavBar() {
 
                     <li>
                         <NavLink 
-                            to='/login' 
+                            to='/my-collection' 
                             className={({isActive}) => 
-                                `${isActive ? ' border-orange-400 border-b-2 text-[#fffcf5]' : ' text-[#fffcf5]'} border-b-2 pb-1 hover:border-b-3 hover:border-orange-400 `
+                                `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
                         >
                             My Collection
@@ -87,7 +87,7 @@ export default  function LoggedInUserNavBar() {
 
             {/* User Profile avatar with drop down menu */}
             <div className='flex justify-between items-center text-xl relative'>                                                                                            
-                <button className='flex items-center gap-2 p-2 rounded-lg hover:bg-orange-400 transition-colors text-[#fffcf5] ' onClick={()=> setOpenProfileOptions(!openProfileOptions)}>
+                <button className='flex items-center gap-2 p-2 rounded-lg hover:bg-orange-400 transition-colors text-[#FFFDD2] ' onClick={()=> setOpenProfileOptions(!openProfileOptions)}>
                         <img 
                             src="https://images.pexels.com/photos/209679/pexels-photo-209679.jpeg" 
                             alt="User avatar"

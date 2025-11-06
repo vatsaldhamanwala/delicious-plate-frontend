@@ -6,7 +6,7 @@ export default function Header() {
         <header>
             <nav className='flex items-center justify-between bg-[#6b4226] px-3 py-3'>
                  {/* Logo */}
-                <div className='text-[#fffcf5] text-3xl font-medium flex items-center'>
+                <div className='text-[#FFFDD2] text-3xl font-medium flex items-center'>
                     <Link to="/">
                         Delicious Plate
                     </Link>
@@ -19,7 +19,7 @@ export default function Header() {
                             <NavLink 
                                 to='/' 
                                 className={({isActive}) => 
-                                    `${isActive ? ' border-orange-400 border-b-2 text-[#fffcf5]' : ' text-[#fffcf5]'} pb-1  border-b-2 hover:border-b-3 hover:border-orange-400 `
+                                    `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                                 }
                             >
                                 Home
@@ -30,10 +30,10 @@ export default function Header() {
                             <NavLink 
                                 to='/about-us' 
                                 className={({isActive}) => 
-                                    `${isActive ? ' border-orange-400 border-b-2 text-[#fffcf5]' : ' text-[#fffcf5]'} border-b-2 pb-1 hover:border-b-3 hover:border-orange-400 `
+                                    `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                                 }
                             >
-                                About Us
+                                About
                             </NavLink>
                         </li>
 
@@ -41,7 +41,7 @@ export default function Header() {
                             <NavLink 
                                 to='/contact' 
                                 className={({isActive}) => 
-                                    `${isActive ? ' border-orange-400 border-b-2 text-[#fffcf5]' : ' text-[#fffcf5]'} border-b-2 pb-1 hover:border-b-3 hover:border-orange-400 `
+                                    `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                                 }
                             >
                                 Contact
@@ -58,7 +58,7 @@ export default function Header() {
                             <NavLink 
                                 to='/post-recipe' 
                                 className={({isActive}) => 
-                                    `${isActive ? ' border-orange-400 border-b-2 text-[#fffcf5]' : ' text-[#fffcf5]'} border-b-2 pb-1 hover:border-b-3 hover:border-orange-400 `
+                                    `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                                 }
                             >
                                 Post Recipe
@@ -69,7 +69,7 @@ export default function Header() {
                             <NavLink 
                                 to='/login' 
                                 className={({isActive}) => 
-                                    `${isActive ? ' border-orange-400 border-b-2 text-[#fffcf5]' : ' text-[#fffcf5]'} border-b-2 pb-1 hover:border-b-3 hover:border-orange-400 `
+                                    `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                                 }
                             >
                                 Login
