@@ -67,7 +67,7 @@ export default function Header() {
 
                         <li>
                             <NavLink 
-                                to='/login' 
+                                to='/auth/login' 
                                 className={({isActive}) => 
                                     `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                                 }
@@ -77,7 +77,7 @@ export default function Header() {
                         </li>
 
                         <li>
-                            <NavLink to='/signup' className='font-medium rounded-lg px-3 py-2 bg-orange-400  hover:bg-orange-400' >
+                            <NavLink to='/auth/sign-up' className='font-medium rounded-lg px-3 py-2 bg-orange-400  hover:bg-orange-400' >
                                 Sign up
                             </NavLink>
                         </li>
