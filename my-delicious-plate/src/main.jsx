@@ -8,6 +8,7 @@ import AboutUs from './Pages/AboutUs/AboutUs.jsx'
 import Contact from './Pages/Contact/Contact.jsx'
 import SignUp from './Pages/Auth/SignUp.jsx'
 import Login from './Pages/Auth/Login.jsx'
+import AuthProvider from './context/AuthProvider.jsx'
 
 
 
@@ -21,18 +22,16 @@ const router = createBrowserRouter(
       </Route>
 
       {/* auth routes with no nav bars */}
-      <Route>
-        <Route path='auth/sign-up' element= {<SignUp />} />
-        <Route path='auth/login' element= {<Login />} />
-      </Route>
-
+      <Route path='auth/sign-up' element= {<SignUp />} />
+      <Route path='auth/login' element= {<Login />} />
     </Route>
-    
   )
 )
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

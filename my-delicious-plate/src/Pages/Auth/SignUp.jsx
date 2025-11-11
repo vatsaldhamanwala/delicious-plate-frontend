@@ -1,16 +1,43 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
+import { useAuth } from '../../context/AuthContext'
 
 
 export default function SignUp() {
 
+    const {signUp} = useAuth()
+
+
+
     const [fullName, setFullName] = useState('')
     const [userName, setUserName] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [profilePhoto, setProfilePhoto] = useState('')
     const [showPassword, setShowPassword] = useState(false)
+
     
+    const handleSubmit = async (event) =>{
+        event.preventDefault()
+        try {
+            const formData = new FormData()
+            formData.append("full_name", fullName)
+            formData.append("user_name", userName)
+
+            if (email) formData.append("email", email)
+                
+            formData.append("password", password)
+
+            if (profilePhoto) formData.append("profile_photo", profilePhoto);
+
+            const res =  await signUp(formData)
+            return res
+
+        } catch (error) {
+            alert('Sign up fail', error)
+        }
+    }
 
 
   return (
@@ -23,30 +50,64 @@ export default function SignUp() {
         <h1 className='text-4xl font-bold text-center mt-8'> 
             Create Account
         </h1>
-        <form>
+        <form onSubmit={handleSubmit}>
             {/* Full Name field */}
             <div className=' rounded-lg w-full max-w-lg mx-auto mt-8 '>
-                <label htmlFor="name" className='block font-semibold text-base text-gray-700'> Full Name </label>
-                <input type="text" placeholder='Enter your Full Name' className= ' outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500 rounded-lg focus:border-orange-500 focus:outline-none bg-white' />
+                <label htmlFor="full_name" className='block font-semibold text-base text-gray-700'> FullName </label>
+                <input 
+                    required 
+                    id='full_name'
+                    name='full_name'
+                    value={fullName} 
+                    onChange={(event)=>setFullName(event.target.value)} 
+                    type="text" 
+                    placeholder='Enter your Full Name' 
+                    className= ' outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500 rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
+                />
             </div>
 
             {/* Username field */}
             <div className=' rounded-lg w-full max-w-lg mx-auto mt-4 '>
-                <label htmlFor="name" className='block font-semibold text-base text-gray-700'> Username </label>
-                <input type="text" placeholder='Enter your Username' className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' />
+                <label htmlFor="user_name" className='block font-semibold text-base text-gray-700'> Username </label>
+                <input 
+                    id='user_name' 
+                    name='user_name'
+                    required  
+                    value={userName} 
+                    onChange={(event)=>setUserName(event.target.value)} 
+                    type="text" 
+                    placeholder='Enter your Username' 
+                    className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
+                />
             </div >
 
             {/* Email field */}
             <div className=' rounded-lg w-full max-w-lg mx-auto mt-4 '>
                 <label htmlFor="email" className='block font-semibold text-base text-gray-700'> Email </label>
-                <input type="email" placeholder='Enter your Email' className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' />
+                <input
+                    id='email' 
+                    name='email'
+                    value={email} 
+                    onChange={(event)=>setEmail(event.target.value)} 
+                    type="email" 
+                    placeholder='Enter your Email' 
+                    className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
+                />
             </div >
 
             {/* Password field */}
             <div className=' rounded-lg w-full max-w-lg mx-auto mt-4 '>
                 <label htmlFor="password" className='block font-semibold text-base text-gray-700'> Password </label>
                 <div className='relative'>
-                    <input type={showPassword ? "text": "password"} placeholder='Enter your Password' className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' />    
+                    <input 
+                        required 
+                        id='password'
+                        name='password'
+                        type={showPassword ? "text": "password"}  
+                        onChange={(event)=>setPassword(event.target.value)} 
+                        placeholder='Enter your Password' 
+                        className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
+                    />    
                     <button onClick={()=> setShowPassword(!showPassword)} type='button' className="absolute right-3 top-2.5 text-gray-500" >
                         { !showPassword ? <Icon icon='heroicons-solid:eye-off' width="20" height="20" /> : <Icon icon='garden:eye-fill-12' width="20" height="20"    />  }
                     </button>
@@ -55,19 +116,27 @@ export default function SignUp() {
 
             {/* Profile Upload */}
              <div className="border rounded-lg p-3 flex items-center gap-4 w-full h-full max-w-lg mx-auto mt-7 ">
-                <label className="w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center cursor-pointer overflow-hidden">
-                    {/* {profileImage ? (
-                        <img src={profileImage} alt="preview" className="w-full h-full object-cover" />
-                    ) : (
-                        <span className="text-gray-500 text-3xl">👤</span>
-                    )} */}
-                    <input type="file" className="hidden"/>
+                <label htmlFor='profile_photo' className="w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center cursor-pointer overflow-hidden">
+                    {profilePhoto ?(
+                        <img src={URL.createObjectURL(profilePhoto)}/>
+                    ): (<span className="text-gray-500 text-3xl">👤</span>)}
                 </label>
+                <input 
+                    id='profile_photo'
+                    name='profile_photo'
+                    onChange={(event)=>setProfilePhoto(event.target.files[0])} 
+                    type="file" 
+                    accept="image/*"
+                    className="hidden"
+                />
 
-                <label className="cursor-pointer bg-gray-100 border px-4 py-2 rounded-lg hover:bg-gray-200 text-sm">
+                <button
+                    type="button"
+                    onClick={() => document.getElementById('profile_photo').click()}
+                    className="cursor-pointer bg-gray-100 border px-4 py-2 rounded-lg hover:bg-gray-200 text-sm"
+                >
                     Upload Profile Photo
-                    <input type="file" className="hidden"/>
-                </label>
+                </button>
             </div>
 
             {/* sign up button */}
@@ -80,7 +149,7 @@ export default function SignUp() {
             {/* Already have account */}
             <div className=' max-w-lg mx-auto mt-4'>
                 <label className="mt-4 text-center text-sm">
-                    Already have an account?
+                    Already have an account?{""}
                     <Link to="/auth/login" className="text-blue-600 font-medium hover:underline"> Log In</Link>
                 </label>
             </div>
