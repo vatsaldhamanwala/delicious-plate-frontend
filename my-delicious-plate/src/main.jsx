@@ -9,6 +9,9 @@ import Contact from './Pages/Contact/Contact.jsx'
 import SignUp from './Pages/Auth/SignUp.jsx'
 import Login from './Pages/Auth/Login.jsx'
 import AuthProvider from './context/AuthProvider.jsx'
+import ViewProfile from './Pages/Profile/ViewProfile.jsx'
+import ProfileSaved from './Pages/Profile/ProfileSaved.jsx'
+import ProfilePosts from './Pages/Profile/ProfilePosts.jsx'
 
 
 
@@ -19,8 +22,13 @@ const router = createBrowserRouter(
         <Route path='' element= {<Home />} />
         <Route path='about-us' element= {<AboutUs />} />
         <Route path='contact' element= {<Contact />} />
-      </Route>
 
+        <Route path='view-profile' element= {<ViewProfile />} >
+          <Route index element= {<ProfilePosts />} />
+          <Route path='saved' element= {<ProfileSaved />} />
+        </Route>
+      </Route>
+      
       {/* auth routes with no nav bars */}
       <Route path='auth/sign-up' element= {<SignUp />} />
       <Route path='auth/login' element= {<Login />} />
