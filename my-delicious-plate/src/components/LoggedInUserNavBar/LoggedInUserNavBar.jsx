@@ -100,29 +100,29 @@ export default  function LoggedInUserNavBar() {
                 {openProfileOptions && (
                     <div className='absolute right-0 w-48 bg-[#FFFBAD]  border border-gray-200 rounded-lg shadow-lg py-2 z-50 mt-58'>
                     
-                    <ul>
-                        <li>
-                            <NavLink to='/view-profile' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
-                                View Profile
-                            </NavLink>
-                            <hr className="my-0.5 border-gray-200" />
-                        </li>
+                        <ul>
+                            <li>
+                                <NavLink to='/view-profile' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
+                                    View Profile
+                                </NavLink>
+                                <hr className="my-0.5 border-gray-200" />
+                            </li>
 
-                        <li>
-                            <NavLink to='/account-settings' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400 ' onClick={()=> setOpenProfileOptions(false)} >
-                                Account Settings
-                            </NavLink>
-                            <hr className="my-0.5 border-gray-200"  />
-                        </li>
+                            <li>
+                                <NavLink to='/account-settings/edit-profile' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400 ' onClick={()=> setOpenProfileOptions(false)} >
+                                    Account Settings
+                                </NavLink>
+                                <hr className="my-0.5 border-gray-200"  />
+                            </li>
 
-                        <li>
-                            <NavLink to='/logout' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
-                                Logout
-                            </NavLink>
-                        </li>
-                    </ul>
+                            <li>
+                                <NavLink to='/logout' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
+                                    Logout
+                                </NavLink>
+                            </li>
+                        </ul>
                     
-                </div>
+                    </div>
                 )}
                 
 

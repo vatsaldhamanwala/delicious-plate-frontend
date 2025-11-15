@@ -12,6 +12,7 @@ import AuthProvider from './context/AuthProvider.jsx'
 import ViewProfile from './Pages/Profile/ViewProfile.jsx'
 import ProfileSaved from './Pages/Profile/ProfileSaved.jsx'
 import ProfilePosts from './Pages/Profile/ProfilePosts.jsx'
+import EditProfile from './Pages/AccountsSettings/EditProfile.jsx'
 
 
 
@@ -27,6 +28,11 @@ const router = createBrowserRouter(
           <Route index element= {<ProfilePosts />} />
           <Route path='saved' element= {<ProfileSaved />} />
         </Route>
+
+        <Route path='account-settings/edit-profile' element= {<EditProfile />}/>
+          
+        
+
       </Route>
       
       {/* auth routes with no nav bars */}
