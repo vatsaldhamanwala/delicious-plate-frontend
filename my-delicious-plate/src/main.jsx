@@ -13,6 +13,8 @@ import ViewProfile from './Pages/Profile/ViewProfile.jsx'
 import ProfileSaved from './Pages/Profile/ProfileSaved.jsx'
 import ProfilePosts from './Pages/Profile/ProfilePosts.jsx'
 import EditProfile from './Pages/AccountsSettings/EditProfile.jsx'
+import ChangeEmail from './Pages/AccountsSettings/ChangeEmail.jsx'
+import ChangePassword from './Pages/AccountsSettings/ChangePassword.jsx'
 
 
 
@@ -30,6 +32,10 @@ const router = createBrowserRouter(
         </Route>
 
         <Route path='account-settings/edit-profile' element= {<EditProfile />}/>
+        <Route path='account-settings/change-email' element= {<ChangeEmail />}/>
+        <Route path='account-settings/change-password' element= {<ChangePassword />}/>
+
+
           
         
 
