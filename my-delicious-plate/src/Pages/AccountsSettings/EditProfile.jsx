@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SideNavigationBar from '../../components/SideNavigationBar.jsx/SideNavigationBar'
 import { Icon } from '@iconify/react'
+import Submit from '../../components/Buttons/Submit'
 
 export default function EditProfile() {
 
@@ -63,6 +64,7 @@ export default function EditProfile() {
             
                         id='full_name'
                         name='full_name'
+                        required  
                         value={fullName} 
                         onChange={(event)=>setFullName(event.target.value)} 
                         type="text" 
@@ -129,11 +131,8 @@ export default function EditProfile() {
                     </div >
                 </div>
                 
-                <div className=' rounded-lg w-full max-w-lg mt-12'>
-                    <button type='submit' className="w-60 bg-[#6b4226] hover:bg-[#a36234] text-[#fffcf5] font-bold py-3 px-6 rounded-lg mt-3 transition ease-in-out duration-300">
-                        Submit
-                    </button>
-                </div >
+               {/* submit button */}
+               <Submit/>
             </form>
             
         </SideNavigationBar>
