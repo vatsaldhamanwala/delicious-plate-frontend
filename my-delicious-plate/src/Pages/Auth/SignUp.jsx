@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import { useAuth } from '../../context/AuthContext'
+import AuthSignUp from '../../components/Buttons/AuthSignUp'
 
 
 export default function SignUp() {
@@ -140,11 +141,7 @@ export default function SignUp() {
             </div>
 
             {/* sign up button */}
-            <div className=' rounded-lg w-full max-w-lg mx-auto mt-4'>
-                <button type='submit' className="w-60 bg-[#6b4226] hover:bg-[#a36234] text-[#fffcf5] font-bold py-3 px-6 rounded-lg mt-3 transition ease-in-out duration-300">
-                    Sign Up
-                </button>
-            </div >
+            <AuthSignUp/>
 
             {/* Already have account */}
             <div className=' max-w-lg mx-auto mt-4'>
