@@ -68,7 +68,7 @@ export default function EditProfile() {
                         value={fullName} 
                         onChange={(event)=>setFullName(event.target.value)} 
                         type="text" 
-                        placeholder='Enter your Full Name' 
+                        placeholder='Enter your full name' 
                         className= ' outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500 rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     />
                 </div>       
@@ -82,7 +82,7 @@ export default function EditProfile() {
                         value={userName} 
                         onChange={(event)=>setUserName(event.target.value)} 
                         type="text" 
-                        placeholder='Enter your Username' 
+                        placeholder='Enter your username' 
                         className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     />
                 </div >

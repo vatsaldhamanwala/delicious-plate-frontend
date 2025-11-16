@@ -47,7 +47,7 @@ export default function ChangePassword() {
                         name='password'
                         type={showNewPassword ? "text": "password"}  
                         onChange={(event)=>setShowNewPassword(event.target.value)} 
-                        placeholder='Enter your Password' 
+                        placeholder='Enter your password' 
                         className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     />    
                     <button onClick={()=> setShowPassword(!showPassword)} type='button' className="absolute right-3 top-2.5 text-gray-500" >
@@ -66,7 +66,7 @@ export default function ChangePassword() {
                         name='password'
                         type={showConfirmPassword ? "text": "password"}  
                         onChange={(event)=>setShowConfirmPassword(event.target.value)} 
-                        placeholder='Confirm your new Password' 
+                        placeholder='Confirm your new password' 
                         className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     />    
                     <button onClick={()=> setShowPassword(!showPassword)} type='button' className="absolute right-3 top-2.5 text-gray-500" >

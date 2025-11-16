@@ -62,7 +62,7 @@ export default function SignUp() {
                     value={fullName} 
                     onChange={(event)=>setFullName(event.target.value)} 
                     type="text" 
-                    placeholder='Enter your Full Name' 
+                    placeholder='Enter your full name' 
                     className= ' outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500 rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                 />
             </div>
@@ -77,7 +77,7 @@ export default function SignUp() {
                     value={userName} 
                     onChange={(event)=>setUserName(event.target.value)} 
                     type="text" 
-                    placeholder='Enter your Username' 
+                    placeholder='Enter your username' 
                     className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                 />
             </div >
@@ -91,7 +91,7 @@ export default function SignUp() {
                     value={email} 
                     onChange={(event)=>setEmail(event.target.value)} 
                     type="email" 
-                    placeholder='Enter your Email' 
+                    placeholder='Enter your email' 
                     className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                 />
             </div >
@@ -106,7 +106,7 @@ export default function SignUp() {
                         name='password'
                         type={showPassword ? "text": "password"}  
                         onChange={(event)=>setPassword(event.target.value)} 
-                        placeholder='Enter your Password' 
+                        placeholder='Enter your password' 
                         className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     />    
                     <button onClick={()=> setShowPassword(!showPassword)} type='button' className="absolute right-3 top-2.5 text-gray-500" >

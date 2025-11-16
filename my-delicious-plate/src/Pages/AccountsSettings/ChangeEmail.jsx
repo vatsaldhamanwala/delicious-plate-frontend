@@ -26,7 +26,7 @@ return (
                         value={email} 
                         onChange={(event)=>setEmail(event.target.value)} 
                         type="email" 
-                        placeholder='Enter your current Email' 
+                        placeholder='Enter your current email' 
                         className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     />
                 </div >
@@ -40,7 +40,7 @@ return (
                         value={newEmail} 
                         onChange={(event)=>setNewEmail(event.target.value)} 
                         type="email" 
-                        placeholder='Enter your new Email' 
+                        placeholder='Enter your new email' 
                         className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     />
                 </div >
