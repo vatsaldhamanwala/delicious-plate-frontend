@@ -63,7 +63,7 @@ export default  function LoggedInUserNavBar() {
                 <ul className='flex flex-col mt-4 font-normal lg:flex-row lg:space-x-12 lg:mt-0 '>
                     <li>
                         <NavLink 
-                            to='/post-recipe' 
+                            to='/post-recipe/basic-info' 
                             className={({isActive}) => 
                                 `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }

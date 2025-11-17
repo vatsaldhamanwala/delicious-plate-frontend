@@ -15,6 +15,8 @@ import ProfilePosts from './Pages/Profile/ProfilePosts.jsx'
 import EditProfile from './Pages/AccountsSettings/EditProfile.jsx'
 import ChangeEmail from './Pages/AccountsSettings/ChangeEmail.jsx'
 import ChangePassword from './Pages/AccountsSettings/ChangePassword.jsx'
+import BasicInfo from './Pages/PostRecipes/BasicInfo.jsx'
+import Media from './Pages/PostRecipes/Media.jsx'
 
 
 
@@ -26,17 +28,22 @@ const router = createBrowserRouter(
         <Route path='about-us' element= {<AboutUs />} />
         <Route path='contact' element= {<Contact />} />
 
+        {/* view profile routes */}
         <Route path='view-profile' element= {<ViewProfile />} >
           <Route index element= {<ProfilePosts />} />
           <Route path='saved' element= {<ProfileSaved />} />
         </Route>
 
+        {/* account setting routes */}
         <Route path='account-settings/edit-profile' element= {<EditProfile />}/>
         <Route path='account-settings/change-email' element= {<ChangeEmail />}/>
         <Route path='account-settings/change-password' element= {<ChangePassword />}/>
 
+        {/* post recipe routes */}
+        <Route path='post-recipe/basic-info' element= {<BasicInfo />}/>
+        <Route path='post-recipe/media' element= {<Media />}/>
 
-          
+        
         
 
       </Route>
