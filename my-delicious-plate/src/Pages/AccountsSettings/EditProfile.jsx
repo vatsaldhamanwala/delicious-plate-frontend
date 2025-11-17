@@ -10,12 +10,6 @@ export default function EditProfile() {
     const [userName, setUserName] = useState('')
     const [bio, setBio] = useState('')
     const [gender, setGender] = useState('')
-
-
-
-
-    
-
     
   return (
     <div>
