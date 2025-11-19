@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { Activity, useCallback, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 
 
@@ -14,7 +14,7 @@ export default  function LoggedInUserNavBar() {
         <nav className='flex items-center justify-between bg-[#6b4226] px-3 py-3 space-x-8'>
             {/* Logo */}
             <div className='text-[#FFFDD2] text-3xl font-medium flex items-center'>
-                <Link to="/">
+                <Link to="/" onClick={()=> setOpenProfileOptions(false)}>
                     Delicious Plate
                 </Link>
             </div>
@@ -26,8 +26,9 @@ export default  function LoggedInUserNavBar() {
                         <NavLink 
                             to='/' 
                             className={({isActive}) => 
-                                `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
+                                `${isActive ? '  border-orange-400 border-b-3 text-[#FFFDD2]'  : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
+                            onClick={()=> setOpenProfileOptions(false)}
                         >
                             Home
                         </NavLink>
@@ -39,6 +40,7 @@ export default  function LoggedInUserNavBar() {
                             className={({isActive}) => 
                                 `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
+                            onClick={()=> setOpenProfileOptions(false)}
                         >
                             About
                         </NavLink>
@@ -50,6 +52,7 @@ export default  function LoggedInUserNavBar() {
                             className={({isActive}) => 
                                 `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
+                            onClick={()=> setOpenProfileOptions(false)}
                         >
                             Contact
                         </NavLink>
@@ -67,6 +70,8 @@ export default  function LoggedInUserNavBar() {
                             className={({isActive}) => 
                                 `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
+                            onClick={()=> setOpenProfileOptions(false)}
+
                         >
                             Post Recipe
                         </NavLink>
@@ -78,6 +83,8 @@ export default  function LoggedInUserNavBar() {
                             className={({isActive}) => 
                                 `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
+                            onClick={()=> setOpenProfileOptions(false)}
+
                         >
                             My Collection
                         </NavLink>
@@ -97,9 +104,10 @@ export default  function LoggedInUserNavBar() {
                             {/* Profile */}
                 </button>
                 
-                {openProfileOptions && (
+                <Activity mode={openProfileOptions ? "visible" :"hidden"}>
+
                     <div className='absolute right-0 w-48 bg-[#FFFBAD]  border border-gray-200 rounded-lg shadow-lg py-2 z-50 mt-58'>
-                    
+                        
                         <ul>
                             <li>
                                 <NavLink to='/view-profile' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
@@ -123,9 +131,8 @@ export default  function LoggedInUserNavBar() {
                         </ul>
                     
                     </div>
-                )}
                 
-
+                </Activity>
             </div>
         </nav>
     </header>
