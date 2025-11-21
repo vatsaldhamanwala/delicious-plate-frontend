@@ -115,7 +115,7 @@ export default function EditProfile() {
                             type="text" 
                             className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                         >
-                            <option value='' disabled selected>
+                            <option value='' disabled>
                                 Select your specific Gender 
                             </option>
 
