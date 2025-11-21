@@ -17,6 +17,8 @@ import ChangeEmail from './Pages/AccountsSettings/ChangeEmail.jsx'
 import ChangePassword from './Pages/AccountsSettings/ChangePassword.jsx'
 import BasicInfo from './Pages/PostRecipes/BasicInfo.jsx'
 import Media from './Pages/PostRecipes/Media.jsx'
+import IngredientsAndSteps from './Pages/PostRecipes/IngredientsAndSteps.jsx'
+import RecipeProvider from './context/RecipeContext/RecipeProvider.jsx'
 
 
 
@@ -42,6 +44,8 @@ const router = createBrowserRouter(
         {/* post recipe routes */}
         <Route path='post-recipe/basic-info' element= {<BasicInfo />}/>
         <Route path='post-recipe/media' element= {<Media />}/>
+        <Route path='post-recipe/ingredients-and-steps' element= {<IngredientsAndSteps />}/>
+
 
         
         
@@ -58,7 +62,9 @@ const router = createBrowserRouter(
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <RecipeProvider>
+        <RouterProvider router={router} />
+      </RecipeProvider>
     </AuthProvider>
   </StrictMode>,
 )

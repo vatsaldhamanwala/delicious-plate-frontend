@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import { NavLink } from 'react-router-dom'
+import { useRecipe } from '../../context/RecipeContext/RecipeContext'
 
 
 export default function BasicInfo() {
-
-    const [recipeTitle, setRecipeTitle] = useState('')
-    const [recipeCategory, setRecipeCategory] = useState('')
-    const [recipeDescription, setRecipeDescription] = useState('')
+    const {recipe, setRecipe} = useRecipe()
 
   return (
     <div>
@@ -29,10 +27,10 @@ export default function BasicInfo() {
                     id='name' 
                     name='name'
                     required
-                    value={recipeTitle} 
-                    onChange={(event)=>setRecipeTitle(event.target.value)} 
+                    value={recipe.name} 
+                    onChange={(event)=>setRecipe({...recipe ,name: event.target.value})} 
                     type="text" 
-                    placeholder='Enter name of your recipe' 
+                    placeholder='Enter name of your recipe name' 
                     className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                 />
             </div >
@@ -44,12 +42,12 @@ export default function BasicInfo() {
                     <select 
                         id='category' 
                         name='category'
-                        value={recipeCategory} 
-                        onChange={(event)=>setRecipeCategory(event.target.value)} 
+                        value={recipe.category} 
+                        onChange={(event)=>setRecipe({...recipe, category: event.target.value})} 
                         type="text" 
                         className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     >
-                        <option value='' disabled selected>
+                        <option value='' disabled>
                             Select your recipe category
                         </option>
 
@@ -69,15 +67,15 @@ export default function BasicInfo() {
                         id='description' 
                         name='description'
                         required
-                        value={recipeDescription} 
-                        onChange={(event)=>setRecipeDescription(event.target.value)} 
+                        value={recipe.description} 
+                        onChange={(event)=>setRecipe({...recipe, description: event.target.value})} 
                         type="text" 
                         placeholder='Describe what is special about your recipe & other important details.' 
                         className='outline-none w-2xl h-40 py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     
                     />
                     <span className="absolute bottom-2 right-2 text-sm text-gray-400">
-                        {recipeDescription.length}/300
+                        {recipe.description.length}/300
                     </span>
                 </div >
             </div>

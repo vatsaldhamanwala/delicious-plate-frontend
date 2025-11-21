@@ -1,10 +1,24 @@
 import React, { useState } from 'react'
 import ProgressBar from '../../components/ProgressBar/ProgressBar'
 import { NavLink } from 'react-router-dom'
+import { useRecipe } from '../../context/RecipeContext/RecipeContext'
 
 
 export default function Media() {
-    const [profilePhoto, setProfilePhoto] = useState('')
+    const {recipe, setRecipe} = useRecipe()
+    
+
+    //handle image 
+    const handleRecipeImageUpload = (event) => {
+        const recipeImageExist = event.target.files[0]
+        if(recipeImageExist){
+            const recipeImageUrl = URL.createObjectURL(recipeImageExist)
+            setRecipe({...recipe, image: recipeImageUrl})
+
+            console.log(recipeImageExist);
+            console.log(recipeImageUrl);
+        }
+    }
     
   return (
     <div>
@@ -21,14 +35,15 @@ export default function Media() {
 
            <div className="border rounded-lg p-3 flex items-center gap-4 w-full h-28 max-w-lg mt-7 ">
                 <label htmlFor='image' className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center cursor-pointer overflow-hidden">
-                    {profilePhoto ?(
-                        <img src={URL.createObjectURL(profilePhoto)}/>
+                    {recipe.image ?(
+                        <img src={recipe.image}/>
                     ): (<span className="text-gray-500 text-3xl">👤</span>)}
                 </label>
+
                 <input 
                     id='image'
                     name='image'
-                    onChange={(event)=>setProfilePhoto(event.target.files[0])} 
+                    onChange={handleRecipeImageUpload} 
                     type="file" 
                     accept="image/*"
                     className="hidden"
