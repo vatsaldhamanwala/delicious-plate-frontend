@@ -8,7 +8,7 @@ import AboutUs from './Pages/AboutUs/AboutUs.jsx'
 import Contact from './Pages/Contact/Contact.jsx'
 import SignUp from './Pages/Auth/SignUp.jsx'
 import Login from './Pages/Auth/Login.jsx'
-import AuthProvider from './context/AuthProvider.jsx'
+import AuthProvider from './context/AuthContext/AuthProvider.jsx'
 import ViewProfile from './Pages/Profile/ViewProfile.jsx'
 import ProfileSaved from './Pages/Profile/ProfileSaved.jsx'
 import ProfilePosts from './Pages/Profile/ProfilePosts.jsx'
@@ -19,6 +19,7 @@ import BasicInfo from './Pages/PostRecipes/BasicInfo.jsx'
 import Media from './Pages/PostRecipes/Media.jsx'
 import IngredientsAndSteps from './Pages/PostRecipes/IngredientsAndSteps.jsx'
 import RecipeProvider from './context/RecipeContext/RecipeProvider.jsx'
+import Review from './Pages/PostRecipes/Review.jsx'
 
 
 
@@ -45,10 +46,7 @@ const router = createBrowserRouter(
         <Route path='post-recipe/basic-info' element= {<BasicInfo />}/>
         <Route path='post-recipe/media' element= {<Media />}/>
         <Route path='post-recipe/ingredients-and-steps' element= {<IngredientsAndSteps />}/>
-
-
-        
-        
+        <Route path='post-recipe/review' element= {<Review />}/>        
 
       </Route>
       
