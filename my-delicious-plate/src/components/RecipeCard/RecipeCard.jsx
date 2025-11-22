@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { Icon } from "@iconify/react";
+import { useRecipe } from '../../context/RecipeContext/RecipeContext';
 
 export default function RecipeCard() {
+
+    const {recipe} = useRecipe()
 
     const [isLiked, setIsLiked] = useState(false)
 
@@ -15,7 +18,7 @@ export default function RecipeCard() {
     <div className='w-60 flex flex-col rounded-xl bg-white min-h-[19rem] border border-gray-300 max-w-2xl mx-auto mt-8'>
         <div className=' shadow  rounded-t-xl'>
             <img
-                src="https://images.pexels.com/photos/1707920/pexels-photo-1707920.jpeg" 
+                src={recipe.image} 
                 alt="test"
                 className='object-cover object-center rounded-t-2xl'
             />
@@ -34,11 +37,11 @@ export default function RecipeCard() {
             </div>
 
             <div className='flex justify-between '>
-                <h1 className='font-bold'> Title </h1>
+                <h1 className='font-bold'> {recipe.name} </h1>
             </div>
 
             <div className='flex justify-between'>
-                <p className='font-semibold'> Category </p>
+                <p className='font-semibold'> {recipe.category} </p>
             </div>
 
             <div className='flex justify-between'>
