@@ -31,7 +31,7 @@ export default function Steps() {
 
     <>
         <div className='border-gray-400 px-3 border mt-4 rounded-lg max-w-fit'>
-            <h1 className='block font-bold text-gray-700 text-2xl'>Steps To Make</h1>
+            <h1 className='block font-bold text-gray-700 text-2xl'>How To Cook</h1>
             {recipe.steps.map((step,index) => (
                 <div key={index} className='flex space-x-4 rounded-lg mt-4 mb-2 '>
 
