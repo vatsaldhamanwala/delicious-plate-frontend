@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Icon } from '@iconify/react'
-import { useAuth } from '../../context/AuthContext'
+import { useAuth } from '../../context/AuthContext/AuthContext'
 import AuthSignUp from '../../components/Buttons/AuthSignUp'
 
 
