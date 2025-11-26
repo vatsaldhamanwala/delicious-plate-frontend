@@ -20,6 +20,8 @@ import Media from './Pages/PostRecipes/Media.jsx'
 import IngredientsAndSteps from './Pages/PostRecipes/IngredientsAndSteps.jsx'
 import RecipeProvider from './context/RecipeContext/RecipeProvider.jsx'
 import Review from './Pages/PostRecipes/Review.jsx'
+import RecipeDetail from './Pages/RecipeDetail/RecipeDetail.jsx'
+import UserRecipeDetail from './Pages/RecipeDetail/UserRecipeDetail.jsx'
 
 
 
@@ -47,6 +49,11 @@ const router = createBrowserRouter(
         <Route path='post-recipe/media' element= {<Media />}/>
         <Route path='post-recipe/ingredients-and-steps' element= {<IngredientsAndSteps />}/>
         <Route path='post-recipe/review' element= {<Review />}/>        
+
+        <Route path='recipe-detail' element= {<RecipeDetail />}/>      
+        <Route path='user-recipe-detail' element= {<UserRecipeDetail />}/>        
+
+
 
       </Route>
       

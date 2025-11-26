@@ -5,7 +5,23 @@ import { NavLink } from 'react-router-dom'
 
 export default function Review() {
 
-  const {recipe} = useRecipe()
+  const {recipe, setRecipe, setRecipes} = useRecipe()
+
+  const saveRecipe = () =>{
+    setRecipes(prev => [...prev, recipe])
+
+    alert("your recipe is successfully posted !!")
+
+    setRecipe({
+      name: "",
+      category: "",
+      description: "",
+      image: "",  
+      number_of_servings:"",
+      ingredients_used: [{name: "", quantity: ""}],  
+      steps: [""]
+    })
+  }
 
   return (
 
@@ -19,16 +35,16 @@ export default function Review() {
       <h2 className=" m-4 text-50 font-normal mb-6 text-[#6b4226]">Nearly There! Check Everything's Correct</h2>
    
       <div className="max-w-3xl bg-white border p-6 rounded-2xl">
-
         {/* recipe image */}
-        
-
-        {/* recipe name */}
         <div htmlFor="image" className='w-auto object-cover rounded-lg bg-gray-300'>
             {recipe.image ? (
             <img src={recipe.image} />
         ): (<span className="text-gray-500 text-3xl py-25 flex align-middle justify-center ">👤</span>)}
         </div>
+
+        {/* recipe name */}
+        
+        <h1 className='text-3xl mt-6 font-bold'> {recipe.name}</h1>
 
         {/* recipe description */}
         <h2 className='text-2xl mt-6 font-semibold' >Recipe Description</h2>
@@ -70,9 +86,13 @@ export default function Review() {
         </NavLink>
 
         {/* go to review */}
-        <NavLink to='/post-recipe/review' className="px-20 cursor-pointer bg-[#6b4226] hover:bg-[#a36234] text-[#fffcf5] font-bold py-3 rounded-lg mt-3 transition ease-in-out duration-300">
+        {/* <NavLink to='/post-recipe/review' className="px-20 cursor-pointer bg-[#6b4226] hover:bg-[#a36234] text-[#fffcf5] font-bold py-3 rounded-lg mt-3 transition ease-in-out duration-300">
             Post Recipe
-        </NavLink>
+        </NavLink> */}
+
+        <button type='button' onClick={saveRecipe} className='px-20 cursor-pointer bg-[#6b4226] hover:bg-[#a36234] text-[#fffcf5] font-bold py-3 rounded-lg mt-3 transition ease-in-out duration-300'>
+            Post Recipe
+        </button>
       </div >
 
     </div>

@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Icon } from "@iconify/react";
 import { useRecipe } from '../../context/RecipeContext/RecipeContext';
 
-export default function RecipeCard() {
+export default function RecipeCard({recipe}) {
 
-    const {recipe} = useRecipe()
+    // const {recipe} = useRecipe()
 
     const [isLiked, setIsLiked] = useState(false)
 
@@ -19,7 +19,7 @@ export default function RecipeCard() {
         <div className=' shadow  rounded-t-xl'>
             <img
                 src={recipe.image} 
-                alt="test"
+                alt={recipe.image}
                 className='object-cover object-center rounded-t-2xl'
             />
         </div>
@@ -27,7 +27,7 @@ export default function RecipeCard() {
         <div className='flex flex-col py-3 px-1 pb-10 text-[#6b4226] space-y-2'>
 
             <div className='flex justify-left '>
-                <button onClick={()=> setIsLiked(!isLiked)} className='flex items-center gap-2 '>
+                <button onClick={()=> setIsLiked(!isLiked)} className='flex items-center gap-2 cursor-pointer'>
                     {isLiked ? <Icon icon='fluent-emoji-flat:heart-suit' className='w-6 h-6' /> : <Icon icon='clarity:heart-line' className='w-6 h-6'/>}
                 </button>
 

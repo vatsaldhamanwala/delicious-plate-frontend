@@ -3,6 +3,7 @@ import { RecipeContext } from './RecipeContext'
 
 export default function RecipeProvider({children}) {
 
+    // post a single recipe 
     const [recipe, setRecipe] = useState({
         name: "",
         category: "",
@@ -13,9 +14,12 @@ export default function RecipeProvider({children}) {
         steps: [""]
     })
 
+    // list all posted recipes
+    const [recipes, setRecipes] = useState([])
+
 
   return (
-    <RecipeContext.Provider value={{recipe, setRecipe}}>
+    <RecipeContext.Provider value={{recipe, setRecipe, recipes, setRecipes}}>
         {children}
     </RecipeContext.Provider>
   )

@@ -1,10 +1,16 @@
 import React from 'react'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import RecipeCard from '../../components/RecipeCard/RecipeCard'
+import { useRecipe } from '../../context/RecipeContext/RecipeContext'
+import { NavLink } from 'react-router-dom'
 
 
 
 export default function Home() {
+
+    const {recipes ,setRecipe} = useRecipe()
+
+
   return (
     <>
         <div className='py-8 bg-[#fbfae8]  '>
@@ -16,42 +22,17 @@ export default function Home() {
         <div className='flex-1 md:px-12 '>
             {/* Veg section */}
             <div className='py-10' >
-                <h2 className='text-[#6b4226] text-3xl font-bold px-3 '> Popular Recipes In Veg  </h2>
+                <h2 className='text-[#6b4226] text-3xl font-bold px-3 '> Recipes </h2>
 
                 <div className='grid grid-cols-3 sm:grid-cols-1 md:grid-cols-5 gap-6'>
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
+                    {recipes.map((item, index)=>(
+                        <NavLink key={index} to='/recipe-detail' onClick={setRecipe(item)}>
+                            <RecipeCard recipe={item} />
+                        </NavLink>
+                    ))}
+                   
                 </div>
             </div>
-
-            {/* Non-veg section */}
-            <div className='py-14' >
-                <h2 className='text-[#6b4226] text-3xl font-bold px-3 '> Popular Recipes In Non-Veg  </h2>
-
-                <div className='grid grid-cols-3 sm:grid-cols-1 md:grid-cols-5 gap-6'>
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                </div>
-            </div>
-
-            <div className='py-14' >
-                <h2 className='text-[#6b4226] text-3xl font-bold px-3 '> Popular Recipes In Non-Veg  </h2>
-
-                <div className='grid grid-cols-3 sm:grid-cols-1 md:grid-cols-5 gap-6'>
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                    <RecipeCard />
-                </div>
-            </div>
-
         </div>
     </>
     

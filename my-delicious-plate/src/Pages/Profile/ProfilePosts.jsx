@@ -1,23 +1,29 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
+import { useRecipe } from '../../context/RecipeContext/RecipeContext'
+import { NavLink } from 'react-router-dom'
 
 export default function ProfilePosts() {
+
+  const {recipes, setRecipe} = useRecipe()
+
+
   return (
-    // <div className='w-60 rounded-xl bg-white min-h-[19rem] border border-gray-300 max-w-2xl mx-auto mt-8'>
-    //   <div className='flex flex-col py-3 px-1 pb-10 text-[#6b4226] space-y-2'>
-    //     <img src='' className='object-center mt-6 animate-pulse' alt='image'/>
-    //   </div>
-    // </div>
-    
     <div className="grid gap-1 object-center sm:grid-cols md:grid-cols-4 px-30">
-      {[1, 2, 3, 4].map((i) => (
-        <div key={i} className="w-60 h-80 overflow-hidden bg-gray-200 flex text-gray-400 items-center justify-center">
-          <img className='object-center mt-6'/>
+
+      {recipes.length === 0 ? (
+        <p className="text-gray-400 text-center w-full py-10">
+          No recipes posted yet.
+        </p>
+      ):(
+        recipes.map((item, index) => (
+          <NavLink key={index} to='/user-recipe-detail' onClick={() => setRecipe(item)} >
+              <img src = {item.image} alt={item.name} className='object-center mt-6'/>
+          </NavLink>
             
-          <Icon icon='material-symbols:image-sharp' width="50" height="50"/>
-           
-        </div>
-      ))}
+        ))
+      )}
+      
     </div>
   )
 }

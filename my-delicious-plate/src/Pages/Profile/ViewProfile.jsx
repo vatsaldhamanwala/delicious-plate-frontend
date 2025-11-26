@@ -2,10 +2,13 @@ import { Icon } from '@iconify/react'
 import React, { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import SideNavigationBar from '../../components/SideNavigationBar.jsx/SideNavigationBar'
+import { useRecipe } from '../../context/RecipeContext/RecipeContext'
 
 export default function ViewProfile() {
 
     const [showProfilePhoto, setShowProfile] = useState(null)
+
+    const {recipes} = useRecipe()
 
 
   return (
@@ -30,7 +33,7 @@ export default function ViewProfile() {
                     <h2 className="text-3xl font-bold text-gray-800 ">Username</h2>
                     <p className="mt-2 text-lg text-gray-700 font-normal">Your Full Name</p>
                     <div className="flex gap-6 mt-2 text-gray-600 text-lg">
-                        <span><b>0</b> Posts</span>
+                        <span><b>{recipes.length}</b> Posts</span>
                         <span><b>0</b> Followers</span>
                         <span><b>0</b> Following</span>
                     </div>
