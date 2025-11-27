@@ -1,5 +1,6 @@
 import React from 'react'
 import { useRecipe } from '../../context/RecipeContext/RecipeContext'
+import EditRecipe from '../../components/Buttons/EditRecipe'
 
 export default function UserRecipeDetail() {
 
@@ -17,12 +18,15 @@ export default function UserRecipeDetail() {
         ): (<span className="text-gray-500 text-3xl py-25 flex align-middle justify-center ">👤</span>)}
         </div>
 
-        <h1 className='text-3xl mt-6 font-bold'> {recipe.name}</h1>
+        <div className='flex items-center justify-between w-full py-2'>
+          <h1 className='text-3xl mt-6 font-bold'> {recipe.name}</h1>
+          <EditRecipe/>
+        </div>
+        
 
         {/* recipe description */}
         <h2 className='text-2xl mt-6 font-semibold' >Recipe Description</h2>
-        <p className=' mt-2 font-normal' >{recipe.description}</p>
-
+        <p className=' mt-2 font-normal' >{recipe.description}</p> 
 
         {/* recipe ingredient  */}
         <div className='text-xl mt-6 font-bold border-gray-400 px-3 border rounded-lg max-w-fit' >Ingredients

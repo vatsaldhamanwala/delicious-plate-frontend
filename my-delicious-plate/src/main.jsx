@@ -22,6 +22,7 @@ import RecipeProvider from './context/RecipeContext/RecipeProvider.jsx'
 import Review from './Pages/PostRecipes/Review.jsx'
 import RecipeDetail from './Pages/RecipeDetail/RecipeDetail.jsx'
 import UserRecipeDetail from './Pages/RecipeDetail/UserRecipeDetail.jsx'
+import EditRecipeDetails from './Pages/EditRecipeDetails/EditRecipeDetails.jsx'
 
 
 
@@ -52,6 +53,8 @@ const router = createBrowserRouter(
 
         <Route path='recipe-detail' element= {<RecipeDetail />}/>      
         <Route path='user-recipe-detail' element= {<UserRecipeDetail />}/>        
+        <Route path='edit-recipe-details' element= {<EditRecipeDetails />}/>        
+
 
 
 
