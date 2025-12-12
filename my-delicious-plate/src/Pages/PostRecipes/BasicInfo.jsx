@@ -22,38 +22,175 @@ export default function BasicInfo() {
 
             {/* recipe title field */}
             <div className=' rounded-lg w-full max-w-lg mt-8 '>
-                <label htmlFor="name" className='block font-semibold text-base text-gray-700'> Recipe Name </label>
+                <label htmlFor="recipe_name" className='block font-semibold text-base text-gray-700'> Recipe Name </label>
                 <input
-                    id='name' 
-                    name='name'
+                    id='recipe_name' 
+                    name='recipe_name'
                     required
-                    value={recipe.name} 
-                    onChange={(event)=>setRecipe({...recipe ,name: event.target.value})} 
+                    value={recipe.recipe_name} 
+                    onChange={(event)=>setRecipe({...recipe ,recipe_name: event.target.value})} 
                     type="text" 
                     placeholder='Enter name of your recipe name' 
                     className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                 />
             </div >
 
-            {/* recipe category field */}
+            {/* recipe diet preference field */}
+
+            <div className='w-full'>
+                <div className='relative rounded-lg max-w-lg mt-4'>
+                    <label className='block font-semibold text-base text-gray-700'>
+                    Diet Preference
+                    </label>
+    
+                    <div className='flex flex-wrap gap-2 mt-2 mb-2'>
+                        {recipe.diet_preference.map((item, index) => (
+                            <span key={index} className="bg-orange-200 text-orange-900 px-3 py-1 rounded-full flex items-center gap-2">
+                                {item}
+
+                                <button 
+                                    type='button' 
+                                    className='text-sm font-bold cursor-pointer'
+                                    onClick={()=> setRecipe({...recipe, diet_preference: recipe.diet_preference.filter((value)=> value !==item)})}
+                                >
+                                    x
+                                </button>
+                            </span>
+                        ))}
+
+                    </div>
+
+                    {/* drop down selection menu */}
+                    <select
+                        id= 'diet_preference'
+                        name='diet_preference'
+                        onChange={(event) => {
+                            const dietPreferenceValue = event.target.value
+
+                            if(!recipe.diet_preference.includes(dietPreferenceValue)){
+                                setRecipe({...recipe, diet_preference: [...recipe.diet_preference, dietPreferenceValue]})
+                            }
+                        }}
+                        className='outline-none w-full py-2 px-4 border-gray-400 border rounded-lg'
+                    >
+                        <option value='' disabled>
+                            Select your diet preference
+                        </option>
+                    
+                        <option value="Veg">Veg</option>
+                        <option value="Non-Veg">Non-Veg</option>
+                        <option value="Healthy">Healthy</option>
+                        <option value="Beverages">Beverages</option>
+                        <option value="Vegan">Vegan</option>
+                    </select>
+                </div>
+            </div>
+
+            {/* recipe dish type field */}
             <div className='w-full'>
                 <div className='relative rounded-lg max-w-lg mt-4 '>
-                    <label htmlFor="category" className='block font-semibold text-base text-gray-700'> Recipe Category </label>
+                    <label htmlFor="dish_type" className='block font-semibold text-base text-gray-700'> Dish Type </label>
+
+                    {/* selected items */}
+                    <div className='flex flex-wrap gap-2 mt-2 mb-2'>
+                        {recipe.dish_type.map((item, index) => (
+                            <span key={index} className="bg-orange-200 text-orange-900 px-3 py-1 rounded-full flex items-center gap-2">
+                                {item}
+
+                                <button 
+                                    type='button' 
+                                    className='text-sm font-bold cursor-pointer'
+                                    onClick={()=> setRecipe({...recipe, dish_type: recipe.dish_type.filter((value)=> value !==item)})}
+                                >
+                                    x
+                                </button>
+                            </span>
+                        ))}
+
+                    </div>
+
+                    {/* drop down selection menu */}
                     <select 
-                        id='category' 
-                        name='category'
-                        value={recipe.category} 
-                        onChange={(event)=>setRecipe({...recipe, category: event.target.value})} 
-                        type="text" 
+                        id='dish_type' 
+                        name='dish_type'
+                        onChange={(event) => {
+                            const dishTypeValue = event.target.value
+
+                            if(!recipe.dish_type.includes(dishTypeValue)){
+                                setRecipe({...recipe, dish_type: [...recipe.dish_type, dishTypeValue]})
+                            }
+                        }} 
                         className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     >
                         <option value='' disabled>
-                            Select your recipe category
+                            Select your dish type
                         </option>
 
-                        <option value='dessert'>Dessert</option>
-                        <option value='veg'>Veg</option>
-                        <option value='non-veg'>Non-Veg</option>
+                        <option value='Burger'>Burger</option>
+                        <option value='Pizza'>Pizza</option>
+                        <option value='Pasta'>Pasta</option>
+                        <option value='Chicken'>Chicken</option>
+                        <option value='Sandwich'>Sandwich</option>
+                        <option value='Panner'>Panner</option>
+                        <option value='Salad'>Salad</option>
+                        <option value='Soup'>Soup</option>
+                        <option value='Dessert'>Dessert</option>
+                        <option value='Tea'>Tea</option>
+                        <option value='Soda'>Soda</option>
+
+
+
+                    </select>
+                </div >
+            </div>
+
+            {/* recipe meal time field */}
+            <div className='w-full'>
+                <div className='relative rounded-lg max-w-lg mt-4 '>
+                    <label htmlFor="meal_time" className='block font-semibold text-base text-gray-700'> Meal Time </label>
+
+                    {/* selected items */}
+                    <div className='flex flex-wrap gap-2 mt-2 mb-2'>
+                        {recipe.meal_time.map((item, index) => (
+                            <span key={index} className="bg-orange-200 text-orange-900 px-3 py-1 rounded-full flex items-center gap-2">
+                                {item}
+
+                                <button 
+                                    type='button' 
+                                    className='text-sm font-bold cursor-pointer'
+                                    onClick={()=> setRecipe({...recipe, meal_time: recipe.meal_time.filter((value)=> value !==item)})}
+                                >
+                                    x
+                                </button>
+                            </span>
+                        ))}
+
+                    </div>
+
+                    {/* drop down selection menu */}
+                    <select 
+                        id='meal_time' 
+                        name='meal_time'
+                        onChange={(event) => {
+                            const mealTimeValue = event.target.value
+
+                            if(!recipe.meal_time.includes(mealTimeValue)){
+                                setRecipe({...recipe, meal_time: [...recipe.meal_time, mealTimeValue]})
+                            }
+                        }} 
+                        className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
+                    >
+                        <option value='' disabled>
+                            Select your meal time
+                        </option>
+
+                        <option value='Breakfast'>Breakfast</option>
+                        <option value='Lunch'>Lunch</option>
+                        <option value='Evening'>Evening</option>
+                        <option value='Snacks'>Snacks</option>
+                        <option value='Dinner'>Dinner</option>
+                        <option value='Main-Course'>Main Course</option>
+                        <option value='Panner'>Starters</option>
 
                     </select>
                 </div >
@@ -75,7 +212,7 @@ export default function BasicInfo() {
                     
                     />
                     <span className="absolute bottom-2 right-2 text-sm text-gray-400">
-                        {recipe.description.length}/300
+                        {/* {recipe.description.length}/300 */}
                     </span>
                 </div >
             </div>

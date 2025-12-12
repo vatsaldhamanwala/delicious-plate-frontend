@@ -18,8 +18,8 @@ export default function RecipeCard({recipe}) {
     <div className='w-60 flex flex-col rounded-xl bg-white min-h-[19rem] border border-gray-300 max-w-2xl mx-auto mt-8'>
         <div className=' shadow  rounded-t-xl'>
             <img
-                src={recipe.image} 
-                alt={recipe.image}
+                src={recipe.recipe_photo} 
+                alt={recipe.recipe_photo}
                 className='object-cover object-center rounded-t-2xl'
             />
         </div>
@@ -37,11 +37,15 @@ export default function RecipeCard({recipe}) {
             </div>
 
             <div className='flex justify-between '>
-                <h1 className='font-bold'> {recipe.name} </h1>
+                <h1 className='font-bold'> {recipe.recipe_name} </h1>
             </div>
 
             <div className='flex justify-between'>
-                <p className='font-semibold'> {recipe.category} </p>
+                <p className='font-semibold'> {recipe.diet_preference} </p>
+            </div>
+
+            <div className='flex justify-between'>
+                <p className='font-semibold'> {recipe.dish_type} </p>
             </div>
 
             <div className='flex justify-between'>

@@ -5,18 +5,17 @@ export default function Steps() {
 
     const {recipe, setRecipe} = useRecipe()
     
-
-    //handle change input
-    const handleStepChange = (index, value) => {
+    const handleStepChange = (objectIndex ,field, value) => {
         const newUpdatedStep = [...recipe.steps]
-        newUpdatedStep[index] = value
+
+        newUpdatedStep [objectIndex][field] = value
 
         setRecipe({...recipe, steps: newUpdatedStep})
     }
 
     //add steps
     const addStep = () => {
-        setRecipe({...recipe, steps: [...recipe.steps,'']})
+        setRecipe({...recipe, steps: [...recipe.steps,{description:''}]})
     } 
 
     //remove using recipe.steps
@@ -40,11 +39,11 @@ export default function Steps() {
 
                     {/* input steps  */}
                     <textarea
-                        id='steps'                                                                                           
+                        id={`steps-${index}`}                                                                                          
                         name='steps'
                         required
-                        value={step} 
-                        onChange={(event)=>handleStepChange(index, event.target.value)} 
+                        value={step.description} 
+                        onChange={(event)=>handleStepChange(index,'description' ,event.target.value)} 
                         type="text" 
                         placeholder= {`Steps ${index + 1}`} 
                         className=' w-96 outline-none py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 

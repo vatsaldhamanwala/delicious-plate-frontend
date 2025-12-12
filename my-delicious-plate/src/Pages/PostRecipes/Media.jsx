@@ -13,7 +13,7 @@ export default function Media() {
         const recipeImageExist = event.target.files[0]
         if(recipeImageExist){
             const recipeImageUrl = URL.createObjectURL(recipeImageExist)
-            setRecipe({...recipe, image: recipeImageUrl})
+            setRecipe({...recipe, recipe_photo: recipeImageUrl})
 
             console.log(recipeImageExist);
             console.log(recipeImageUrl);
@@ -35,14 +35,14 @@ export default function Media() {
 
            <div className="border rounded-lg p-3 flex items-center gap-4 w-full h-28 max-w-lg mt-7 ">
                 <label htmlFor='image' className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center cursor-pointer overflow-hidden">
-                    {recipe.image ?(
-                        <img src={recipe.image}/>
+                    {recipe.recipe_photo ?(
+                        <img src={recipe.recipe_photo}/>
                     ): (<span className="text-gray-500 text-3xl">👤</span>)}
                 </label>
 
                 <input 
-                    id='image'
-                    name='image'
+                    id='recipe_photo'
+                    name='recipe_photo'
                     onChange={handleRecipeImageUpload} 
                     type="file" 
                     accept="image/*"
@@ -51,7 +51,7 @@ export default function Media() {
 
                 <button
                     type="button"
-                    onClick={() => document.getElementById('image').click()}
+                    onClick={() => document.getElementById('recipe_photo').click()}
                     className="w-56 h-10 cursor-pointer bg-gray-100 border px-4 py-2 rounded-lg hover:bg-gray-200 text-sm"
                 >
                     Choose File

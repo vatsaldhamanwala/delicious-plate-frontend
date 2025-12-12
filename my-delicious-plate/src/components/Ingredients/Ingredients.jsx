@@ -5,20 +5,20 @@ export default function Ingredients() {
 
     const {recipe, setRecipe} = useRecipe()
 
-    // const ingredients = recipe.ingredients_used
+    // const ingredients = recipe.ingredients
     
 
     // handle ingredient change
     const handleIngredientChange = (objectIndex, field, value)=>{
 
         //make copy of array ingredient
-        const newUpdatedIngredient = [...recipe.ingredients_used]
+        const newUpdatedIngredient = [...recipe.ingredients]
 
         //update ingredient object name or quantity
         newUpdatedIngredient[objectIndex][field]= value
 
         // set the new updated ingredient (re-renders)
-        setRecipe({...recipe, ingredients_used: newUpdatedIngredient})
+        setRecipe({...recipe, ingredients: newUpdatedIngredient})
 
         console.log(newUpdatedIngredient);
         
@@ -27,17 +27,17 @@ export default function Ingredients() {
      // add ingredient
     const addIngredient =() =>{
         // event.preventDefault()
-        setRecipe({...recipe, ingredients_used: [...recipe.ingredients_used, {name:"", quantity:""}]})
-        // setRecipe({...recipe, ingredients_used: [{name:"", quantity:""}]})
+        setRecipe({...recipe, ingredients: [...recipe.ingredients, {name:"", quantity:""}]})
+        // setRecipe({...recipe, ingredients: [{name:"", quantity:""}]})
 
     }
 
     // remove ingredient
     const removeIngredient =(deleteIndex) =>{
-        if(recipe.ingredients_used.length > 1) {
-            const remainingIngredients = recipe.ingredients_used.filter((_,index) => index !== deleteIndex)
+        if(recipe.ingredients.length > 1) {
+            const remainingIngredients = recipe.ingredients.filter((_,index) => index !== deleteIndex)
 
-            setRecipe({...recipe, ingredients_used: remainingIngredients})
+            setRecipe({...recipe, ingredients: remainingIngredients})
         }
     }
     
@@ -46,11 +46,11 @@ export default function Ingredients() {
 
     <div className='border-gray-400 px-3 border mt-4 rounded-lg max-w-fit'>
         <h1 className='block font-bold text-gray-700 text-2xl'>Ingredients</h1>
-        {recipe.ingredients_used.map((ingredient,index)=>(
+        {recipe.ingredients.map((ingredient,index)=>(
             <div key={index} className='space-x-4 rounded-lg mt-4 '>
                 <input
-                    id='ingredients_used'                                                                                           
-                    name='ingredients_used'
+                    id={`name-${index}`}                                                                                          
+                    name='name'
                     value={ingredient.name} 
                     onChange={(event)=>handleIngredientChange(index, "name", event.target.value)} 
                     type="text" 
@@ -60,7 +60,7 @@ export default function Ingredients() {
                 
 
                 <input
-                    id='quantity'                                                                                           
+                    id={`quantity-${index}`}                                                                                              
                     name='quantity'
                     required
                     value={ingredient.quantity} 

@@ -5,13 +5,15 @@ export default function RecipeProvider({children}) {
 
     // post a single recipe 
     const [recipe, setRecipe] = useState({
-        name: "",
-        category: "",
+        recipe_name: "",
+        diet_preference: [],
+        dish_type: [],
+        meal_time: [],
         description: "",
-        image: "",  
+        recipe_photo: "",  
         number_of_servings:"",
-        ingredients_used: [{name: "", quantity: ""}],  
-        steps: [""]
+        ingredients: [{name: "", quantity: ""}],  
+        steps: [{description: ""}]
     })
 
     // list all posted recipes

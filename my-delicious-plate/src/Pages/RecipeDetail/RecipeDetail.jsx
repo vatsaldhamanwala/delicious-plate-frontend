@@ -13,13 +13,17 @@ export default function RecipeDetail() {
    
       {/* <div className="max-w-3xl bg-white border p-6 rounded-2xl"> */}
         {/* recipe image */}
-        <div htmlFor="image" className='w-auto object-cover rounded-lg bg-gray-300'>
+        <div htmlFor="recipe_photo" className='w-auto object-cover rounded-lg bg-gray-300'>
             {recipe.image ? (
-            <img src={recipe.image} />
+            <img src={recipe.recipe_photo} />
         ): (<span className="text-gray-500 text-3xl py-25 flex align-middle justify-center ">👤</span>)}
         </div>
 
-        <h1 className='text-3xl mt-6 font-bold'> {recipe.name}</h1>
+        <h1 className='text-3xl mt-6 font-bold'> {recipe.recipe_name}</h1>
+
+        <h1 className='text-2xl mt-6 font-medium'> Diet Preference: <span className='font-normal'> {recipe.diet_preference} </span> </h1>
+        <h1 className='text-2xl mt-6 font-medium'> Dish Type: <span className='font-normal'> {recipe.dish_type} </span> </h1>
+        <h1 className='text-2xl mt-6 font-medium'> Meal Time: <span className='font-normal'> {recipe.meal_time} </span></h1>
 
         {/* recipe description */}
         <h2 className='text-2xl mt-6 font-semibold' >Recipe Description</h2>
@@ -29,7 +33,7 @@ export default function RecipeDetail() {
         {/* recipe ingredient  */}
         <div className='text-xl mt-6 font-bold border-gray-400 px-3 border rounded-lg max-w-fit' >Ingredients
           <ul>
-            {recipe.ingredients_used.map((ingredient, index)=>(
+            {recipe.ingredients.map((ingredient, index)=>(
               <li key={index} className='flex justify-between mt-2'>
                 <span className='font-normal'>{ingredient.name}</span>
                 <span className='font-light'>{ingredient.quantity}</span>
@@ -47,7 +51,7 @@ export default function RecipeDetail() {
         <ol className='mt-3 text-lg'>
           {recipe.steps.map((step, index)=>(
             <li key={index}>
-              <strong>{index + 1}.</strong> {step}
+              <strong>{index + 1}.</strong> {step.description}
             </li>
           ))}
         </ol>
