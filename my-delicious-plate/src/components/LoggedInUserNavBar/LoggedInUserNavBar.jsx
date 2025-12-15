@@ -1,5 +1,5 @@
 import React, { Activity, useCallback, useRef, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 
 export default  function LoggedInUserNavBar() {
@@ -7,6 +7,10 @@ export default  function LoggedInUserNavBar() {
     const [openProfileOptions, setOpenProfileOptions] = useState(false)
 
     console.log(openProfileOptions);
+
+    const location = useLocation()
+    
+    console.log("Nav bar path: ", location.pathname);
     
 
   return (
@@ -14,7 +18,7 @@ export default  function LoggedInUserNavBar() {
         <nav className='flex items-center justify-between bg-[#6b4226] px-3 py-3 space-x-8'>
             {/* Logo */}
             <div className='text-[#FFFDD2] text-3xl font-medium flex items-center'>
-                <Link to="/" onClick={()=> setOpenProfileOptions(false)}>
+                <Link to="/delicious-plate" onClick={()=> setOpenProfileOptions(false)}>
                     Delicious Plate
                 </Link>
             </div>
@@ -24,7 +28,8 @@ export default  function LoggedInUserNavBar() {
                 <ul className='flex flex-col mt-4 font-normal lg:flex-row lg:space-x-14 lg:mt-0'>
                     <li>
                         <NavLink 
-                            to='/' 
+                            to='.'
+                            end 
                             className={({isActive}) => 
                                 `${isActive ? '  border-orange-400 border-b-3 text-[#FFFDD2]'  : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
@@ -36,7 +41,7 @@ export default  function LoggedInUserNavBar() {
 
                     <li>
                         <NavLink 
-                            to='/about-us' 
+                            to='/delicious-plate/about-us' 
                             className={({isActive}) => 
                                 `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
@@ -48,7 +53,7 @@ export default  function LoggedInUserNavBar() {
 
                     <li>
                         <NavLink 
-                            to='/contact' 
+                            to='/delicious-plate/contact' 
                             className={({isActive}) => 
                                 `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
@@ -66,7 +71,7 @@ export default  function LoggedInUserNavBar() {
                 <ul className='flex flex-col mt-4 font-normal lg:flex-row lg:space-x-12 lg:mt-0 '>
                     <li>
                         <NavLink 
-                            to='/post-recipe/basic-info' 
+                            to='/delicious-plate/post-recipe/basic-info' 
                             className={({isActive}) => 
                                 `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
@@ -79,7 +84,7 @@ export default  function LoggedInUserNavBar() {
 
                     <li>
                         <NavLink 
-                            to='/my-collection' 
+                            to='/delicious-plate/my-collection' 
                             className={({isActive}) => 
                                 `${isActive ? ' border-orange-400 border-b-3 text-[#FFFDD2]' : ' text-[#FFFDD2]'} pb-1 hover:border-b-3 hover:border-orange-400 `
                             }
@@ -110,21 +115,21 @@ export default  function LoggedInUserNavBar() {
                         
                         <ul>
                             <li>
-                                <NavLink to='/view-profile' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
+                                <NavLink to='/delicious-plate/view-profile' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
                                     View Profile
                                 </NavLink>
                                 <hr className="my-0.5 border-gray-200" />
                             </li>
 
                             <li>
-                                <NavLink to='/account-settings/edit-profile' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400 ' onClick={()=> setOpenProfileOptions(false)} >
+                                <NavLink to='/delicious-plate/account-settings/edit-profile' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400 ' onClick={()=> setOpenProfileOptions(false)} >
                                     Account Settings
                                 </NavLink>
                                 <hr className="my-0.5 border-gray-200"  />
                             </li>
 
                             <li>
-                                <NavLink to='/logout' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
+                                <NavLink to='/' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
                                     Logout
                                 </NavLink>
                             </li>
