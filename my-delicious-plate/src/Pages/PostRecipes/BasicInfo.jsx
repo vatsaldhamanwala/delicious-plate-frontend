@@ -219,7 +219,7 @@ export default function BasicInfo() {
 
             {/* save and continue button link */}
             <div className=' rounded-lg  mt-12'>
-                <NavLink to='/post-recipe/media' className="px-20 cursor-pointer bg-[#6b4226] hover:bg-[#a36234] text-[#fffcf5] font-bold py-3 rounded-lg mt-3 transition ease-in-out duration-300">
+                <NavLink to='/delicious-plate/post-recipe/media' className="px-20 cursor-pointer bg-[#6b4226] hover:bg-[#a36234] text-[#fffcf5] font-bold py-3 rounded-lg mt-3 transition ease-in-out duration-300">
                     Save & Continue
                 </NavLink>
             </div >

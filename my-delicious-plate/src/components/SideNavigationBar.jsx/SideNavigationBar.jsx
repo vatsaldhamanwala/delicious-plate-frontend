@@ -13,7 +13,7 @@ export default function SideNavigationBar({children}) {
                 <ul>
                     <li>
                         <NavLink 
-                            to= '/view-profile'
+                            to= '/delicious-plate/view-profile'
                             className={({isActive})=>
                                 `${isActive ? '"text-left px-13 py-2 rounded-md font-medium bg-orange-400 transition"':'text-left px-13 py-2 rounded-md bg-[#ffef8c] font-medium hover:bg-orange-400 transition'}`
                             } 
@@ -30,7 +30,7 @@ export default function SideNavigationBar({children}) {
                 <ul>
                     <li className='mb-6'>
                         <NavLink 
-                            to='/account-settings/edit-profile' 
+                            to='/delicious-plate/account-settings/edit-profile' 
                             className= {({isActive})=>
                                 `${isActive ? ' text-left px-14 py-2 rounded-md font-medium bg-orange-400 transition':' text-left text-[#6b4226] px-14 py-2 rounded-md bg-[#ffef8c] font-medium hover:bg-orange-400 transition'}`
                             }
@@ -41,7 +41,7 @@ export default function SideNavigationBar({children}) {
 
                     <li className='mb-6'>
                         <NavLink 
-                        to='/account-settings/change-email' 
+                        to='/delicious-plate/account-settings/change-email' 
                         className= {({isActive})=>
                                 `${isActive ? ' text-left px-11.5 py-2 rounded-md font-medium bg-orange-400 transition':' text-[#6b4226] px-11.5 py-2 rounded-md bg-[#ffef8c] font-medium hover:bg-orange-400 transition'}`
                             }
@@ -52,7 +52,7 @@ export default function SideNavigationBar({children}) {
 
                     <li className='mb-6'>
                         <NavLink 
-                            to='/account-settings/change-password' 
+                            to='/delicious-plate/account-settings/change-password' 
                             className= {({isActive})=>
                                 `${isActive ? ' text-left px-8 py-2 rounded-md font-medium bg-orange-400 transition':' text-[#6b4226] px-8 py-2 rounded-md bg-[#ffef8c] font-medium hover:bg-orange-400 transition'}`
                             }

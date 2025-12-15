@@ -87,7 +87,7 @@ export default function Review() {
       {/* buttons */}
       <div className=' rounded-lg space-x-3 mt-12'>
         {/* go back to ingredients-and-steps page */}
-        <NavLink to='/post-recipe/ingredients-and-steps' className="px-20 cursor-pointer border border-[#6b4226] text-[#6b4226] font-bold py-3 rounded-lg mt-3 transition ease-in-out duration-300">
+        <NavLink to='/delicious-plate/post-recipe/ingredients-and-steps' className="px-20 cursor-pointer border border-[#6b4226] text-[#6b4226] font-bold py-3 rounded-lg mt-3 transition ease-in-out duration-300">
             Go Back
         </NavLink>
 

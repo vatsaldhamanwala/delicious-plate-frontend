@@ -45,11 +45,11 @@ export default function IngredientsAndSteps() {
 
             {/* go back to post new recipe button link */}
             <div className=' rounded-lg space-x-3 mt-12'>
-                <NavLink to='/post-recipe/media' className="px-20 cursor-pointer border border-[#6b4226] text-[#6b4226] font-bold py-3 rounded-lg mt-3 transition ease-in-out duration-300">
+                <NavLink to='/delicious-plate/post-recipe/media' className="px-20 cursor-pointer border border-[#6b4226] text-[#6b4226] font-bold py-3 rounded-lg mt-3 transition ease-in-out duration-300">
                     Go Back
                 </NavLink>
 
-                <NavLink to='/post-recipe/review' className="px-20 cursor-pointer bg-[#6b4226] hover:bg-[#a36234] text-[#fffcf5] font-bold py-3 rounded-lg mt-3 transition ease-in-out duration-300">
+                <NavLink to='/delicious-plate/post-recipe/review' className="px-20 cursor-pointer bg-[#6b4226] hover:bg-[#a36234] text-[#fffcf5] font-bold py-3 rounded-lg mt-3 transition ease-in-out duration-300">
                     Save & Continue
                 </NavLink>
             </div >
