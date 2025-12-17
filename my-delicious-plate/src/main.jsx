@@ -23,46 +23,66 @@ import Review from './Pages/PostRecipes/Review.jsx'
 import RecipeDetail from './Pages/RecipeDetail/RecipeDetail.jsx'
 import UserRecipeDetail from './Pages/RecipeDetail/UserRecipeDetail.jsx'
 import EditRecipeDetails from './Pages/EditRecipeDetails/EditRecipeDetails.jsx'
+import ProtectedRoutes from './ProtectedRoutes.jsx'
+import LoginUserLayout from './LoginUserLayout.jsx'
+import AuthLayout from './AuthLayout.jsx'
+import LoginUserHomePage from './Pages/LoginUserHomePage/LoginUserHomePage.jsx'
 
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
+
+      {/* public routes */}
       <Route path='/' element={<App/>}>
         <Route path='' element= {<Home />} />
         <Route path='about-us' element= {<AboutUs />} />
         <Route path='contact' element= {<Contact />} />
-
-        {/* view profile routes */}
-        <Route path='view-profile' element= {<ViewProfile />} >
-          <Route index element= {<ProfilePosts />} />
-          <Route path='saved' element= {<ProfileSaved />} />
-        </Route>
-
-        {/* account setting routes */}
-        <Route path='account-settings/edit-profile' element= {<EditProfile />}/>
-        <Route path='account-settings/change-email' element= {<ChangeEmail />}/>
-        <Route path='account-settings/change-password' element= {<ChangePassword />}/>
-
-        {/* post recipe routes */}
-        <Route path='post-recipe/basic-info' element= {<BasicInfo />}/>
+        <Route path='post-recipe/basic-info' element= {<BasicInfo />} />
         <Route path='post-recipe/media' element= {<Media />}/>
         <Route path='post-recipe/ingredients-and-steps' element= {<IngredientsAndSteps />}/>
         <Route path='post-recipe/review' element= {<Review />}/>        
 
-        <Route path='recipe-detail' element= {<RecipeDetail />}/>      
-        <Route path='user-recipe-detail' element= {<UserRecipeDetail />}/>        
-        <Route path='edit-recipe-details' element= {<EditRecipeDetails />}/>        
+      </Route>
 
+      {/* private routes */}
+      <Route element= {<ProtectedRoutes/>}>
+        <Route path='delicious-plate' element = {<LoginUserLayout/>}>
+          <Route index element ={<LoginUserHomePage/>} />
+          <Route path='about-us' element= {<AboutUs />} />
+          <Route path='contact' element= {<Contact />} />
 
+          {/* view profile routes */}
+          <Route path='view-profile' element= {<ViewProfile />} > 
+            <Route index element= {<ProfilePosts />} />
+            <Route path='saved' element= {<ProfileSaved />} />
+          </Route>
+        
 
+          {/* account setting routes */}
+          <Route path='account-settings/edit-profile' element= {<EditProfile />}/>
+          <Route path='account-settings/change-email' element= {<ChangeEmail />}/>
+          <Route path='account-settings/change-password' element= {<ChangePassword />}/>
 
+          {/* post recipe routes */}
+          <Route path='post-recipe/basic-info' element= {<BasicInfo />}/>
+          <Route path='post-recipe/media' element= {<Media />}/>
+          <Route path='post-recipe/ingredients-and-steps' element= {<IngredientsAndSteps />}/>
+          <Route path='post-recipe/review' element= {<Review />}/>        
+
+          <Route path='recipe-detail' element= {<RecipeDetail />}/>      
+          <Route path='user-recipe-detail' element= {<UserRecipeDetail />}/>        
+          <Route path='edit-recipe-details' element= {<EditRecipeDetails />}/>       
+        </Route> 
       </Route>
       
       {/* auth routes with no nav bars */}
-      <Route path='auth/sign-up' element= {<SignUp />} />
-      <Route path='auth/login' element= {<Login />} />
+      <Route element= {<AuthLayout/>}>
+        <Route path='auth/sign-up' element= {<SignUp />} />
+        <Route path='auth/login' element= {<Login />} />
+      </Route>
+      
     </Route>
   )
 )
