@@ -4,38 +4,66 @@ import axios from 'axios'
 
 export default function AuthProvider({children}) {
 
-    const[user, setUser] = useState('')
+    const [user, setUser] = useState(() => {
+        const savedUser = localStorage.getItem("user");
+        return savedUser ? JSON.parse(savedUser) : null;
+    });
+    
 
     //sign up
     const signUp = async(formData) =>{
         try {
 
-            const API = process.env.VITE_API_BASE_URL
+            // const API = process.env.VITE_API_BASE_URL
 
-            const response = await axios.post(`${API}/auth/sign-up`, 
+            const response = await axios.post(`http://127.0.0.1:8000/api/v1/auth/sign-up`, 
                 formData, 
-                {withCredentials: true, headers: { "Content-Type": "multipart/form-data" },
-            })
+                {withCredentials: true, headers: { "Content-Type": "multipart/form-data" },}
+            )
 
-            const data = await response.data
+                const userData = response.data.data.user
+                console.log("🚀 ~ signUp ~ userData:", userData)
 
-            setUser(data.data.user)
+                setUser(userData)
+                
+                localStorage.setItem("user", JSON.stringify(userData))
 
-            const user= data.data.user
-            
-            console.log("Sign up Api response: ", data);
-            console.log("User: ", user);
-            alert(`${user.full_name} sign up successfully!!`)
-            
-            return data
-        } catch (error) {
-            console.error('fail to sign up this user', error)
-            alert("Sign up failed!! ")
-        }
+                return response.data
+
+            } catch (error) {
+
+                console.error("Signup failed", error)
+                throw error
+            }
     } 
 
+    const getCurrentUser = async () => {
+    try {
+      const response = await axios.get(
+        `http://127.0.0.1:8000/api/v1/users/me`,
+        { withCredentials: true }   
+      )
+
+      const userData = response.data.data.user
+      console.log("🚀 ~ getCurrentUser ~ userData:", userData)
+
+      setUser(userData)
+
+      localStorage.setItem("user", JSON.stringify(userData))
+
+      return userData
+
+    } catch (error) {
+      setUser(null)
+      localStorage.removeItem("user")
+      return null
+    }
+  }
+
+
+
   return (
-    <AuthContext.Provider value={{user,setUser,signUp}}>
+    <AuthContext.Provider value={{user,setUser,signUp, getCurrentUser}}>
        {children}
     </AuthContext.Provider> 
   )

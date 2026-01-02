@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import { useAuth } from '../../context/AuthContext/AuthContext'
 import AuthSignUp from '../../components/Buttons/AuthSignUp'
@@ -8,6 +8,7 @@ import AuthSignUp from '../../components/Buttons/AuthSignUp'
 export default function SignUp() {
 
     const {signUp} = useAuth()
+    const navigate = useNavigate()
 
 
 
@@ -33,6 +34,12 @@ export default function SignUp() {
             if (profilePhoto) formData.append("profile_photo", profilePhoto);
 
             const res =  await signUp(formData)
+            
+            // Navigate to protected route after successful sign-up
+            if (res && res.data && res.data.user) {
+                navigate('/delicious-plate', { replace: true })
+            }
+            
             return res
 
         } catch (error) {

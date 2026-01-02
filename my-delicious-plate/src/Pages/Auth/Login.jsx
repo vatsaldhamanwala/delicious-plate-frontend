@@ -1,13 +1,23 @@
 import { Icon } from '@iconify/react'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import AuthLogin from '../../components/Buttons/AuthLogin';
+import { useAuth } from '../../context/AuthContext/AuthContext';
 
 
 export default function Login() {
 
+    const {user} = useAuth()
+    
+
     const [showPassword, setShowPassword] = useState(false)
+    const navigate = useNavigate()
+    
     console.log(showPassword);
+
+    if(user){
+        navigate('/delicious-plate', { replace: true })
+    }
     
 
  return (
