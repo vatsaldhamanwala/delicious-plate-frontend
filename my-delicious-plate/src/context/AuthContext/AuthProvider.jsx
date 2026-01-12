@@ -10,34 +10,60 @@ export default function AuthProvider({children}) {
     });
     
 
-    //sign up
-    const signUp = async(formData) =>{
-        try {
+  //sign up
+  const signUp = async(formData) =>{
+    try {
 
-            // const API = process.env.VITE_API_BASE_URL
+      // const API = process.env.VITE_API_BASE_URL
 
-            const response = await axios.post(`http://127.0.0.1:8000/api/v1/auth/sign-up`, 
-                formData, 
-                {withCredentials: true, headers: { "Content-Type": "multipart/form-data" },}
-            )
+      const response = await axios.post(`http://127.0.0.1:8000/api/v1/auth/sign-up`, 
+          formData, 
+          {withCredentials: true, headers: { "Content-Type": "application/json" },}
+      )
 
-                const userData = response.data.data.user
-                console.log("🚀 ~ signUp ~ userData:", userData)
+      const userData = response.data.data.user
+      console.log("🚀 ~ signUp ~ userData:", userData)
 
-                setUser(userData)
-                
-                localStorage.setItem("user", JSON.stringify(userData))
+      setUser(userData)
+      
+      localStorage.setItem("user", JSON.stringify(userData))
 
-                return response.data
+      return response.data
 
-            } catch (error) {
+    } catch (error) {
 
-                console.error("Signup failed", error)
-                throw error
-            }
-    } 
+      console.error("Signup failed", error)
+      throw error
+    }
+  } 
 
-    const getCurrentUser = async () => {
+  // login
+   const login = async({user_name, password}) =>{
+    try {
+
+      const response = await axios.post(`http://127.0.0.1:8000/api/v1/auth/login`, 
+          {user_name, password}, 
+          {withCredentials: true, headers: { "Content-Type": "application/json" },}
+      )
+
+      const userData = response.data.data.user
+      console.log("🚀 ~ signUp ~ userData:", userData)
+
+      setUser(userData)
+      
+      localStorage.setItem("user", JSON.stringify(userData))
+
+      return response.data
+
+    } catch (error) {
+
+      console.error("login failed", error)
+      throw error
+    }
+  } 
+
+  // get user when page refresh
+  const getCurrentUser = async () => {
     try {
       const response = await axios.get(
         `http://127.0.0.1:8000/api/v1/users/me`,
@@ -60,10 +86,26 @@ export default function AuthProvider({children}) {
     }
   }
 
+  // logout
+  const logout = async () => {
+    try {
+
+      await axios.post(`http://127.0.0.1:8000/api/v1/auth/logout`,
+        {},
+        { withCredentials: true }
+      );
+    } catch (error) {
+      // 🔥 Always clear frontend state
+      console.error("Logout failed", error);
+    } finally {
+      setUser(null);
+      localStorage.removeItem("user");
+    }
+  };
 
 
   return (
-    <AuthContext.Provider value={{user,setUser,signUp, getCurrentUser}}>
+    <AuthContext.Provider value={{user, setUser, signUp, login , getCurrentUser, logout}}>
        {children}
     </AuthContext.Provider> 
   )

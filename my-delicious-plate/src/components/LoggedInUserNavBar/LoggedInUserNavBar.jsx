@@ -1,5 +1,6 @@
-import React, { Activity, useCallback, useRef, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import React, { Activity, useState } from 'react'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext/AuthContext';
 
 
 export default  function LoggedInUserNavBar() {
@@ -11,6 +12,14 @@ export default  function LoggedInUserNavBar() {
     const location = useLocation()
     
     console.log("Nav bar path: ", location.pathname);
+
+    const { logout } = useAuth()
+    const navigate = useNavigate()
+
+    const handleLogout = async () => {
+        await logout()
+        navigate('/') // public home
+    }
     
 
   return (
@@ -115,23 +124,23 @@ export default  function LoggedInUserNavBar() {
                         
                         <ul>
                             <li>
-                                <NavLink to='/delicious-plate/view-profile' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
+                                <NavLink to='/delicious-plate/view-profile' className='block px-10 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
                                     View Profile
                                 </NavLink>
                                 <hr className="my-0.5 border-gray-200" />
                             </li>
 
                             <li>
-                                <NavLink to='/delicious-plate/account-settings/edit-profile' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400 ' onClick={()=> setOpenProfileOptions(false)} >
+                                <NavLink to='/delicious-plate/account-settings/edit-profile' className='block px-4.5 py-2 text-[#6b4226] hover:bg-orange-400 ' onClick={()=> setOpenProfileOptions(false)} >
                                     Account Settings
                                 </NavLink>
                                 <hr className="my-0.5 border-gray-200"  />
                             </li>
 
                             <li>
-                                <NavLink to='/' className='block px-4 py-2 text-[#6b4226] hover:bg-orange-400  ' onClick={()=> setOpenProfileOptions(false)} >
+                                <button className='block px-15.5 py-2 font-medium hover:bg-orange-400 transition cursor-pointer' onClick={handleLogout} >
                                     Logout
-                                </NavLink>
+                                </button>
                             </li>
                         </ul>
                     

@@ -1,7 +1,16 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext/AuthContext'
 
 export default function SideNavigationBar({children}) {
+
+    const { logout } = useAuth()
+    const navigate = useNavigate()
+
+    const handleLogout = async () => {
+        await logout()
+        navigate('/')
+    }
   return (
      <div className="flex min-h-screen bg-[#fffdf7]">
         {/* Left Sidebar */}
@@ -62,14 +71,12 @@ export default function SideNavigationBar({children}) {
                     </li>
 
                     <li className='mb-6'>
-                        <NavLink 
-                            to='/' 
-                            className= {({isActive})=>
-                                `${isActive ? ' text-left px-17.5 py-2 rounded-md font-medium bg-orange-400 transition':' text-[#6b4226] px-17.5 py-2 rounded-md bg-[#ffef8c] font-medium hover:bg-orange-400 transition'}`
-                            }
+                        <button 
+                            onClick={handleLogout}
+                            className= 'text-left px-17.5 py-2 rounded-md bg-[#ffef8c] font-medium hover:bg-orange-400 transition cursor-pointer'
                         >
                             Logout
-                        </NavLink>
+                        </button>
                     </li>
                 </ul>
             </nav>
