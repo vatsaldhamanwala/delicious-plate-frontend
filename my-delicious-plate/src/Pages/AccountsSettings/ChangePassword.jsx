@@ -5,6 +5,8 @@ import SetNewPassword from '../../components/Buttons/SetNewPassword'
 
 export default function ChangePassword() {
     const [password, setPassword] = useState('')
+    const [newPassword, setNewPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
     const [showNewPassword, setShowNewPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -20,11 +22,11 @@ export default function ChangePassword() {
             
             {/* current password */}
             <div className=' rounded-lg w-full max-w-lg mt-4 '>
-                <label htmlFor="password" className='block font-semibold text-base text-gray-700'> Password </label>
+                <label htmlFor="current-password" className='block font-semibold text-base text-gray-700'> Password </label>
                 <div className='relative'>
                     <input 
                         required 
-                        id='password'
+                        id='current-password'
                         name='password'
                         type={showPassword ? "text": "password"}  
                         onChange={(event)=>setPassword(event.target.value)} 
@@ -39,14 +41,14 @@ export default function ChangePassword() {
 
             {/* set new password */}
             <div className=' rounded-lg w-full max-w-lg mt-4 '>
-                <label htmlFor="password" className='block font-semibold text-base text-gray-700'> New Password </label>
+                <label htmlFor="new-password" className='block font-semibold text-base text-gray-700'> New Password </label>
                 <div className='relative'>
                     <input 
                         required 
-                        id='password'
-                        name='password'
+                        id='new-password'
+                        name='new-password'
                         type={showNewPassword ? "text": "password"}  
-                        onChange={(event)=>setShowNewPassword(event.target.value)} 
+                        onChange={(event)=>setNewPassword(event.target.value)} 
                         placeholder='Enter your password' 
                         className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     />    
@@ -58,14 +60,14 @@ export default function ChangePassword() {
 
             {/* set confirm password */}
             <div className=' rounded-lg w-full max-w-lg mt-4 '>
-                <label htmlFor="password" className='block font-semibold text-base text-gray-700'> Confirm Password </label>
+                <label htmlFor="confirm-password" className='block font-semibold text-base text-gray-700'> Confirm Password </label>
                 <div className='relative'>
                     <input 
                         required 
-                        id='password'
-                        name='password'
+                        id='confirm-password'
+                        name='confirm-password'
                         type={showConfirmPassword ? "text": "password"}  
-                        onChange={(event)=>setShowConfirmPassword(event.target.value)} 
+                        onChange={(event)=>setConfirmPassword(event.target.value)} 
                         placeholder='Confirm your new password' 
                         className='outline-none w-full py-2 px-4 border-gray-400 border placeholder-gray-500  rounded-lg focus:border-orange-500 focus:outline-none bg-white' 
                     />    
