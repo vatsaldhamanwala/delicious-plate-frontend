@@ -1,6 +1,7 @@
 import React, { Activity, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext/AuthContext';
+import { Icon } from '@iconify/react';
 
 
 export default  function LoggedInUserNavBar() {
@@ -109,12 +110,15 @@ export default  function LoggedInUserNavBar() {
             {/* User Profile avatar with drop down menu */}
             <div className='flex justify-between items-center text-xl relative'>                                                                                            
                 <button className='flex items-center gap-2 p-2 rounded-lg hover:bg-orange-400 transition-colors text-[#FFFDD2] ' onClick={()=> setOpenProfileOptions(!openProfileOptions)}>
-                        <img 
-                            src={user?.profile_photo.url || <Icon icon='iconamoon:profile-fill' color='white' width="80" height="80"/>} 
-                            alt="User avatar"
-                            className='w-8 h-8 rounded-full cursor-pointer' 
-                            
-                        />
+                        {user?.profile_photo?.url ? (
+                            <img 
+                                src={user.profile_photo.url} 
+                                alt="User avatar"
+                                className='w-8 h-8 rounded-full cursor-pointer' 
+                            />
+                        ) : (
+                            <Icon icon='iconamoon:profile-fill' color='white' width="32" height="32"/>
+                        )}
                             {/* Profile */}
                 </button>
                 

@@ -23,7 +23,7 @@ export default function ViewProfile() {
             <section className='grid md:grid-cols-2 px-72'>
                 {/* profile image */}
                 <div className="mt-3 w-40 h-40 rounded-full bg-gray-300 flex items-center justify-center text-4xl">
-                    {user?.profile_photo ? (
+                    {user?.profile_photo?.url ? (
                         <img src={user.profile_photo.url} alt="Profile" className="w-full h-full rounded-full object-cover" />
                     ) : (
                         <Icon icon='iconamoon:profile-fill' color='white' width="80" height="80"/>
