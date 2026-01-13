@@ -36,7 +36,7 @@ export default function SignUp() {
             const res =  await signUp(formData)
             
             // Navigate to protected route after successful sign-up
-            if (res && res.data && res.data.user) {
+            if (res && res.data && res.data.data && res.data.data.user) {
                 navigate('/delicious-plate', { replace: true })
             }
             

@@ -1,15 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SideNavigationBar from '../../components/SideNavigationBar.jsx/SideNavigationBar'
 import { Icon } from '@iconify/react'
 import Submit from '../../components/Buttons/Submit'
+import { useAuth } from '../../context/AuthContext/AuthContext'
 
 export default function EditProfile() {
 
-    const [profilePhoto, setProfilePhoto] = useState('')
+    const { user } = useAuth()
+
+    const [profilePhoto, setProfilePhoto] = useState(null)
     const [fullName, setFullName] = useState('')
     const [userName, setUserName] = useState('')
     const [bio, setBio] = useState('')
     const [gender, setGender] = useState('')
+
+    useEffect(() => {
+        if (user) {
+            setFullName(user.full_name || '')
+            setUserName(user.user_name || '')
+            setBio(user.bio || '')
+            setGender(user.gender || '')
+            // Don't set profilePhoto here; it's for selected file only
+        }
+    }, [user])
     
   return (
     <div>
@@ -21,9 +34,13 @@ export default function EditProfile() {
                 {/* update or remove profile photo section */}
                 <div className="border rounded-lg p-3 flex items-center gap-4 w-full h-28 max-w-lg mt-7 ">
                     <label htmlFor='profile_photo' className="w-28 h-22 rounded-full bg-gray-200 flex items-center justify-center cursor-pointer overflow-hidden">
-                        {profilePhoto ?(
-                            <img src={URL.createObjectURL(profilePhoto)}/>
-                        ): (<span className="text-gray-500 text-3xl">👤</span>)}
+                        {profilePhoto ? (
+                            <img src={URL.createObjectURL(profilePhoto)} alt="New Profile" className="w-full h-full object-cover" />
+                        ) : user?.profile_photo?.url ? (
+                            <img src={user.profile_photo.url} alt="Current Profile" className="w-full h-full object-cover" />
+                        ) : (
+                            <Icon icon='iconamoon:profile-fill' color='white' width="80" height="80"/>
+                        )}
                     </label>
                     <input 
                         id='profile_photo'

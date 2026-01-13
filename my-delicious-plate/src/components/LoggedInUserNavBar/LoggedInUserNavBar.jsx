@@ -13,7 +13,7 @@ export default  function LoggedInUserNavBar() {
     
     console.log("Nav bar path: ", location.pathname);
 
-    const { logout } = useAuth()
+    const { logout, user } = useAuth()
     const navigate = useNavigate()
 
     const handleLogout = async () => {
@@ -110,7 +110,7 @@ export default  function LoggedInUserNavBar() {
             <div className='flex justify-between items-center text-xl relative'>                                                                                            
                 <button className='flex items-center gap-2 p-2 rounded-lg hover:bg-orange-400 transition-colors text-[#FFFDD2] ' onClick={()=> setOpenProfileOptions(!openProfileOptions)}>
                         <img 
-                            src="https://images.pexels.com/photos/209679/pexels-photo-209679.jpeg" 
+                            src={user?.profile_photo.url || <Icon icon='iconamoon:profile-fill' color='white' width="80" height="80"/>} 
                             alt="User avatar"
                             className='w-8 h-8 rounded-full cursor-pointer' 
                             

@@ -18,7 +18,7 @@ export default function AuthProvider({children}) {
 
       const response = await axios.post(`http://127.0.0.1:8000/api/v1/auth/sign-up`, 
           formData, 
-          {withCredentials: true, headers: { "Content-Type": "application/json" },}
+          {withCredentials: true, headers: { "Content-Type": "multipart/form-data" },}
       )
 
       const userData = response.data.data.user
@@ -47,7 +47,7 @@ export default function AuthProvider({children}) {
       )
 
       const userData = response.data.data.user
-      console.log("🚀 ~ signUp ~ userData:", userData)
+      console.log("🚀 ~ login ~ userData:", userData)
 
       setUser(userData)
       
